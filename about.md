@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hello world, this is Siva Sundaramoorthy. 
 
-### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I love working on machine learning and building things. Professionally, I'm an applied machine learning research engineer. I want to understand things clearly, and explain them well - on the work I do on AI. I believe this blog would help me achieve both.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[siva11.sundaramoorthy.com](mailto:siva11.sundaramoorthy.com)
