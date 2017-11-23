@@ -23,6 +23,8 @@ Representation is basically representing the input data(be image, speech, or vid
 
 While looking back at older machine learning algorithms, they made great progress in training classification, regression and recognition systems when "good" representations, or features, of input data are available. They rely on the input being a feature and learn a classifier, regressor, etc on top of that. Most of these features were hand crafted, meaning, they were designed by humans. However, much human effort was spent on designing good features which are usually knowledge-based and engineered by domain experts over years of trial and error. A natural question to ask then is "Can we automate the learning of useful features from raw data?". And the answer lied on representation learning(aka. feature engineering/learning).
 
+![representation learning history]({{site.baseurl}}/images/rep-learn-history-LRG.jpg)
+
 And coming to deep  learning, it exploits this concept by its very nature. Multilayer neural networks can be used to perform feature learning, since they learn a representation of increasing complexity/abstraction of their input at the hidden layer(s) which is subsequently used for classification or regression at the output layer. While the representations or features learned corresponds to the hidden stochastic neurons. Specifically, Restricted Boltzmann machines, auto encoders, deep belief networks, convolutional neural networks are well known architectures for representation Learning. These learnt features are increasingly more informative through layers towards the machine learning task that we intend to perform (e.g. classification).
 
 ![Focus of this blog post - input to algorithm]({{site.baseurl}}/images/input-algo-2.png)
@@ -84,3 +86,46 @@ In the last decade, deep learning techniques for representation learning disrupt
 
 ![Graphs pictorial representation]({{site.baseurl}}/images/data-looks-like-graph.png)
 
+Graphs are a ubiquitous data structure. Social networks, molecular graph structures, biological protein-protein networks, recommender systems—all of these domains and many more can be readily modeled as graphs,  which capture interactions (i.e.,  edges) between individual units (i.e., nodes). As a consequence of their ubiquity, graphs are the backbone of countless systems, allowing relational knowledge about interacting entities to be efficiently stored and accessed. However,  graphs  are  not  only  useful  as  structured  knowledge  repositories:  they  also  play  a  key  role  in modern machine learning. The central problem in machine learning on graphs is finding a way to incorporate information about the structure of the graph into learning algorithms.
+
+Traditionally, to extract structural information from graphs, traditional machine approaches often rely on summary graph statistics (e.g.,  degrees or clustering coefficients), kernel functions, or carefully engineered features to  measure  local  neighborhood  structures. However, these approaches are limited because these hand-engineered features are inflexible — i.e., they cannot adapt during the learning process and designing these features can be a time-consuming and expensive process.
+
+![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
+
+# Enter Graph embeddings
+
+Generally, graph embedding aims to represent a graph as low dimensional vectors while the graph structure are preserved. We may represent a node or edge or path or substructure or whole-graph(at different levels of granularity) as a low-dimensional vector. And handle different kinds of networks (directed, weighted, temporal, multiplex, etc.). These learned  embeddings  are  input  as  features  to  a  model and the parameters are learned based on the training data. This  obviates  the  need  for  complex  classification  models which are applied directly on the graph. The differences between different graph embedding algorithms lie in how they define the graph property to be preserved. 
+
+![graph embedding visualisation]({{site.baseurl}}/images/graph-embedding-viz.png)
+
+Moreover, the problem of graph embedding is related to two traditional research problems, i.e., graph analytics and representation learning. On the one hand, graph analytics aims to mine useful information from graph data. On the other hand, representation learning obtains data representations that make it easier to extract useful information when building classifiers or other predictors. Graph embedding lies in the overlapping of the two problems and focuses on learning the low-dimensional  representations. Note that we distinguish graph representation learning and graph embedding here. Graph representation learning does not require the learned representations to be low dimensional.
+
+Current methodology of dealing with large graph data is approached through Graph analytics. Effective graph analytics provides users a deeper understanding of what is behind the data, and thus can benefit a lot of useful applications such as node classification, node recommendation, link prediction, etc. However, most graph analytics methods suffer the high computation and space cost. While, graph embeddings  converts the graph data into a low dimensional space in which the graph structural information and graph properties are maximally preserved.
+
+Particularly, NLP and graph data work because graphs have a “natural affinity” with NLP, relation-oriented, providing index-free adjacency. While alleviating sparsity issue in large-scale NLP and enable knowledge transfer across domains and  objects.
+
+## Graph embeddings Challenges
+
+Embedding graphs into low dimensional  space  is  not a  trivial  task. The challenges  of  graph  embedding  depend on the problem setting , which consists of embedding input and  embedding  output. 
+
+There are different types of graphs(e.g., homogeneous graph, heterogeneous graph, attribute  graph, graph  with  auxiliary  information,  graph constructed from non-relational data, etc), so the input of graph embedding varies in different scenarios. Different types of embedding input carry different information to be preserved in the embedded space and thus pose different challenges to the problem of graph embedding. For example, when embedding a graph with structural information only, the  connections  between nodes are the target to preserve.
+
+The output of graph embedding is a low-dimensional vector representing a part of the graph(or a whole graph). Unlike embedding input which is given and fixed, the embedding output is task driven. For example, the most common type of embedding output is node embedding  which  represents  close  nodes  as  similar vectors. Node embedding can benefit the node related tasks such as node classification, node clustering, etc. However, in some cases, the tasks may be related to higher granularity of a graph e.g., node pairs, subgraph, whole graph. Hence the first challenge in terms of embedding output is how to find a suitable embedding output type for the specific application task. We categorize four types of graph embedding output, including node embedding, edge  embedding,  hybrid  embedding and  whole-graph  embedding.  Different  output  granularities have  different criteria  of  what  a  ”good”  embedding  and face  different  challenges.  For  example,  a  good node  embedding preserves  the  similarity to its neighbour nodes in  the embedded space. In contrast, a good whole-graph embedding represents a whole graph as a vector so that the graph-level similarity is preserved.
+
+Furthermore, Choice of property, Scalability, Dimensionality of the embedding are other few challenges that has to be addressed.
+
+(i) Choice of property : A “good” vector representation of nodes should preserve the structure of the graph and the connection between individual nodes. The first challenge is choosing  the  property  of  the  graph  which  the  embedding should preserve. Given the plethora of distance metrics and properties  defined  for  graphs,  this  choice  can  be  difficult and the performance may depend on the application.
+
+(ii) Scalability : Most real networks are large and contain millions of nodes and edges — embedding methods should be scalable and able to process large graphs. Defining a scalable model can be challenging especially when the model is aimed to preserve global properties of the network.
+
+(iii) Dimensionality of the embedding:  Finding  the optimal dimensions of the representation can be hard. For example,  higher  number  of  dimensions  may  increase  the reconstruction precision but will have high time and space complexity.  The  choice  can  also  be  application-specific  depending on the approach: E.g., lower number of dimensions may  result  in  better  link  prediction  accuracy  if  the  chosen model only captures local connections between nodes.
+
+# REFERENCES
+
+[1] [Pedro Domingos, A Few Useful Things to Know about Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)
+
+[2] [Deep Learning of Representations for Unsupervised and Transfer Learning](www.jmlr.org/proceedings/papers/v27/bengio12a/bengio12a.pdf )
+
+[3] [Deep Learning, Yoshua Bengio, Ian Goodfellow, Aaron Courville, MIT Press - Chapter 15](http://www.deeplearningbook.org/contents/representation.html)
+
+[4] [Network Embedding with Deep Learning](http://www.cips-cl.org/static/CCL2016/tutorialpdf/T3A_%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97_part3.pdf)
