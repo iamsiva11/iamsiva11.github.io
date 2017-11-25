@@ -1,6 +1,8 @@
 ---
 published: true
 ---
+![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
+
 This is the second part of the Graph embeddings 2017 blog series. You can find the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
 In the previous blog post we discussed about representation learning and graph embeddings in general, which would serve as the foundation for this blog post as it will go into graph embeddings in much more depth. 
