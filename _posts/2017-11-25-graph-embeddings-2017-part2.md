@@ -74,5 +74,5 @@ Random Walk based Methods
 The growing research on deep learning has led to a deluge of deep neural networks based methods applied to graphs. Deep auto-encoders have been e.g. used for dimensionality reduction  due to their ability to model non-linear structure in the data. We can interpret the weights of the auto-encoder as a representation of  the  structure  of  the  graph. Recently, SDNE  utilised this ability of deep auto-encoder to generate an embedding model that can capture non-linearity in graphs. As  a  popular  deep  learning model, Convolutional Neural Network (CNN) and its variants  have  been  widely  adopted  in  graph  embedding.
 
 Deep Learning based methods
-SDNE - auto-encoder based(encoder decoder methods)
-GCN - Uses CNN
+* SDNE - auto-encoder based(encoder decoder methods)
+* GCN - Uses CNN
