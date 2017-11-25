@@ -90,7 +90,6 @@ Graphs are a ubiquitous data structure. Social networks, molecular graph structu
 
 Traditionally, to extract structural information from graphs, traditional machine approaches often rely on summary graph statistics (e.g.,  degrees or clustering coefficients), kernel functions, or carefully engineered features to  measure  local  neighborhood  structures. However, these approaches are limited because these hand-engineered features are inflexible — i.e., they cannot adapt during the learning process and designing these features can be a time-consuming and expensive process.
 
-![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
 # Enter Graph embeddings
 
