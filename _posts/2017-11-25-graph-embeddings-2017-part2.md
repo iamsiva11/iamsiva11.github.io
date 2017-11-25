@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 This is the second part of the Graph embeddings 2017 blog series. You can find the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
