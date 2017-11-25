@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Graphs and representation learning - Part I
+title: Graph embeddings 2017 - Part I
 published: true
 ---
 
