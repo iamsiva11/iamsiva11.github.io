@@ -74,9 +74,11 @@ And in the field of computer vision; deep learning and representation learning p
 
 A wheel has a geometric shape, but its image may be complicated by shadows falling on the wheel, the sun glaring off the metal parts of the wheel, the fender of the car or an object in the foreground obscuring part of the wheel, and so on. One solution to this problem is to use ML to discover not only the mapping from representation to output but also the representation to itself. This approach is called representation learning. Instead of manually describing the wheel; like, say it should be circular, be black in colour, have treads, etc. But these are all hand crafted features and may not generalize to all situations. For example, if you look at the wheel from a different angle, it might be oval in shape. Or the lighting may cause it to have lighter and darker patches. These kinds of variations are hard to account for manually. Instead, we can let the representation learning neural network learn them from data by giving it several positive and negative examples of a wheel and training it end to end.
 
+That's a wrap on the representation learning part. Let's get deeper into Graph embeddings now (our topic of interest in this blog series).
+
 ---
 
-That's a wrap on the representation learning part. Let's get deeper into Graph embeddings now (our topic of interest in this blog series).
+# What's non-Euclidean data?
 
 In the last decade, deep learning techniques for representation learning disrupted the field of Computer Vision, speech and text, which we have seen above. That said, research on DL techniques has mainly focused so far on data defined on Euclidean domains (i.e. grids, sequences). There have been very few studies involving representation learning on network data (for example, social network data). Recently, methods which use the representation of graph nodes in vector space have gained traction from the research community.
 
