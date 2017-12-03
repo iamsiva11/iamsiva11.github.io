@@ -5,13 +5,13 @@ layout: post
 ---
 ![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
-This is the second part of the Graph embeddings 2017 blog series. You can find the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
+This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
-In the previous blog post we discussed about representation learning and graph embeddings in general. Which would serve as the foundation for this blog post as tsis post will go into graph embeddings in much more depth. 
+In the previous blog post we discussed about representation learning and graph embeddings in general. Which would serve as the foundation for this blog post as this post will go into graph embeddings in much more depth. 
 
-In the early 2000s, researchers developed graph embedding algorithms as part of dimensionality reduction techniques. They  would  construct  a  similarity  graph  for  a  set  of n D-dimensional  points  based  on  neighbourhood  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where d<<D. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. Laplacian  Eigen maps(LAP)[1] and  Locally  Linear  Embedding(LLE)[2] are  examples  of  algorithms  based  on  this  rationale. 
+In the early 2000s, researchers developed graph embedding algorithms as part of dimensionality reduction techniques. They would construct  a  similarity  graph  for  a  set  of n D-dimensional  points  based  on  neighbourhood  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where d<<D. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. Laplacian  Eigen maps(LAP)[1] and  Locally  Linear  Embedding(LLE)[2] are  examples  of  algorithms  based  on  this  rationale. 
 
-Since 2010, research  on  graph  embedding  has shifted to  obtaining  scalable  graph  embedding  techniques  which leverage the sparsity of real-world networks. For example, Graph Factorisation [4] uses an approximate factorisation of the adjacency matrix as the embedding. LINE [3] extends this approach and attempts to preserve both first order and second proximities. HOPE [5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix  rather  than  adjacency  matrix  using  a  generalised Singular  Value  Decomposition  (SVD).  SDNE[6]  uses  auto-encoders to embed graph nodes and capture highly non-linear  dependencies.  The  new  scalable  approaches  have  a time complexity of O(|E|).
+Since 2010, research on graph embedding has shifted to obtaining scalable  graph embedding techniques which leverage the sparsity of real-world networks. For example, Graph Factorisation [4] uses an approximate factorisation of the adjacency matrix as the embedding. LINE [3] extends this approach and attempts to preserve both first order and second proximities. HOPE [5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix rather than adjacency matrix using a generalised Singular Value Decomposition(SVD). SDNE[6] uses auto-encoders to embed graph nodes and capture highly non-linear dependencies. The new scalable approaches have a time complexity of O(|E|).
 
 Recently, on of the pioneering algorithm in graph embedding technique was “DeepWalk” [8], followed by LINE[3], GraRep[7], etc. DeepWalk,	Walklets, LINE (Large-scale Information Network Embedding),	HPE(Heterogeneous Preference Embedding), APP(Asymmetric Proximity Preserving graph embedding), MF(Matrix Factorisation) are some of the important techniques that came up in the recent past. And more importantly, of these methods general  non-linear  models(e.g.  deep learning based) have shown great promise in capturing the inherent  dynamics of the graph.
 
@@ -33,6 +33,7 @@ The matrices used to represent the connections include node adjacency matrix, La
 Approaches  to  factorize  the  representative  matrix  vary  based  on  the  matrix properties.  If  the  obtained  matrix  is  positive  semidefinite, e.g.  the  Laplacian  matrix,  one  can  use  eigenvalue  decomposition. For  unstructured  matrices,  one  can  use  gradient descent methods to obtain the embedding in linear time.
 
 Some of the important Factorization based Methods are mentioned below:
+
 * Locally Linear Embedding (LLE)
 * Laplacian Eigen Maps(LAP)
 * Graph Factorisation (GF) 
@@ -42,43 +43,51 @@ Some of the important Factorization based Methods are mentioned below:
 ### Random Walk based Methods
 ---
 
-Random walks have been used to approximate many properties in the graph including node centrality and similarity. They are especially useful when one can either only  partially  observe  the  graph,  or  the  graph  is  too  large to measure in its entirety. Embedding techniques using random walks on graphs to obtain node representations have been proposed: DeepWalk and node2vec are two examples. In random walk based  methods,  the  mixture  of  equivalences  can  be  controlled  to  a  certain  extent  by  varying  the  random  walk parameters. Embeddings learnt  by node2vec with  parameters set  to  prefer  BFS  random  walk  would  cluster  structurally equivalent  nodes  together. On  the  other  hand,  methods which directly preserve k-hop distances between nodes (GF,LE and LLE with k= 1 and HOPE and SDNE with k >1) cluster neighbouring nodes together.
+Random walks have been used to approximate many properties in the graph including node centrality and similarity. They are especially useful when one can either only  partially  observe  the  graph,  or  the  graph  is  too  large to measure in its entirety.
 
-Random Walk based Methods
+Embedding techniques using random walks on graphs to obtain node representations have been proposed: DeepWalk and node2vec are two examples. 
+
+In random walk based  methods,  the  mixture  of  equivalences  can  be  controlled  to  a  certain  extent  by  varying  the  random  walk parameters. Embeddings learnt  by node2vec with  parameters set  to  prefer  BFS  random  walk  would  cluster  structurally equivalent  nodes  together. On  the  other  hand,  methods which directly preserve k-hop distances between nodes (GF,LE and LLE with k= 1 and HOPE and SDNE with k >1) cluster neighbouring nodes together.
+
+Random Walk based Methods:
+
 * DeepWalk
 * node2vec
 
 ### Deep Learning based
 ---
 
-The growing research on deep learning has led to a deluge of deep neural networks based methods applied to graphs. Deep auto-encoders have been e.g. used for dimensionality reduction  due to their ability to model non-linear structure in the data. We can interpret the weights of the auto-encoder as a representation of  the  structure  of  the  graph. Recently, SDNE  utilised this ability of deep auto-encoder to generate an embedding model that can capture non-linearity in graphs. As  a  popular  deep  learning model, Convolutional Neural Network (CNN) and its variants  have  been  widely  adopted  in  graph  embedding.
+The growing research on deep learning has led to a deluge of deep neural networks based methods applied to graphs. Deep auto-encoders have been e.g. used for dimensionality reduction  due to their ability to model non-linear structure in the data. We can interpret the weights of the auto-encoder as a representation of  the  structure  of  the  graph. Recently, SDNE  utilised this ability of deep auto-encoder to generate an embedding model that can capture non-linearity in graphs. 
 
-Deep Learning based methods
+As  a  popular  deep  learning model, Convolutional Neural Network (CNN) and its variants  have  been  widely  adopted  in  graph  embedding.
+
+Deep Learning based methods:
+
 * SDNE - auto-encoder based(encoder decoder methods)
 * GCN - Uses CNN
 
 Having seen the taxonomy of approaches in the Graph embeddigns technique; lets have a quick overview of what the important pioneering techniques in graph embedding do. And provide a context of the research developemnt and progress of in the Graph embeddings space:
 
-* Laplacian Eigenmaps, Locally Linear Embedding [Early 2000s] - Graph -> adjacency matrix -> latent representation (Factorisation based methods)
+* Laplacian Eigenmaps, Locally Linear Embedding [Early 2000s]: 
+Graph -> adjacency matrix -> latent representation (Factorisation based methods)
 
-* HOPE(Higher-Order Proximity preserved Embedding) or (Asymmetric Proximity Preserving graph embedding)APP [KDD 2016] - preserve high-order proximities, capturing the asymmetric transitivity (Factorisation based methods)
+* HOPE(Higher-Order Proximity preserved Embedding) or (Asymmetric Proximity Preserving graph embedding)APP [KDD 2016] - preserve high-order proximities, capturing the asymmetric transitivity. (Factorisation based methods)
 
-* DeepWalk [KDD'14] - Node sentences + word2vec (Randomwalk based methods)
+* DeepWalk [KDD'14] - Basic idea: apply word2vec to non-NLP data. Random walk distance is known to be good features for many problems (i.e. Node sentences + word2vec) (Randomwalk based methods)
 
-* node2vec [KDD'16] - DeepWalk + more sampling strategies (Factorisation based methods)
+* node2vec [KDD'16] - DeepWalk + more sampling strategies (Randomwalk based methods)
 
-* SDNE [KDD'16] (Structural Deep Network Embedding) - Deep autoencoder + First-order + second-order proximity (Deep-learning based methods)
+* SDNE [KDD'16] (Structural Deep Network Embedding): Use  deep  autoencoders  to preserve  the  first  and  second  order  network proximities(i.e. Deep autoencoder + First-order + second-order proximity). They achieve this by jointly optimizing the two proximities. (Deep-learning based methods)
 
-* LINE [Tang’15] (Large-scale Information Network Embedding) - Shallow + first-order + second-order proximity (Other han the 3 mentioned above)
+* LINE [Tang’15] (Large-scale Information Network Embedding) - Shallow + first-order + second-order proximity (Other than the 3 categories mentioned above)
 
-Other important work worth mentioning:
+Other important techniques worth mentioning:
 
-* Graph Factorization/ MF (Matrix Factorization) (ACM, 2013) 
+* Graph Factorization/ MF (Matrix Factorization) [ACM, 2013]
 * GraRep [ACM, 2015] - similar to HOPE
 * struc2vec [KDD 2017]
 * GraphSAGE [NIPS 2017]
 * Graph Convolutional Networks(GCN) [ICLR 2017]
-* GENE - Group document + doc2vec(DM, DBOW)
 
 # REFERENCES
 
