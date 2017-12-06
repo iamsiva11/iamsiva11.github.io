@@ -29,9 +29,7 @@ And coming to deep learning, it exploits this concept by its very nature. Multil
 
 ![Focus of this blog post - input to algorithm]({{site.baseurl}}/images/input-algo-2.png)
 
-> So basically, we have two learning tasks now. 
-
-First, we let the deep network discover the features and next place our preferred learning model to perform your task. Simple!
+_So basically, we have two learning tasks now. First, we let the deep network discover the features and next place our preferred learning model to perform your task. Simple!_
 
 Yoshua Bengio is one of the leaders in deep learning; although he began with a strong interest in the automatic feature learning that large neural networks are capable of achieving. 
 
@@ -43,12 +41,11 @@ In his 2012 paper titled “Deep Learning of Representations for Unsupervised an
 
 Furthermore, Deep models follow this modern view of representation learning[4] - learn representations (a.k.a. causes or features) that are
 
-* Hierarchical: representations at increasing levels of abstraction
-* Distributed: information is encoded by a multiplicity of causes
-* Shared among tasks
-* Sparse: enforcing neural selectivity
-* Characterized by simple dependencies: a simple (linear) combination of the representations should be sufficient to generate data
-
+* **Hierarchical**: representations at increasing levels of abstraction
+* **Distributed**: information is encoded by a multiplicity of causes
+* **Shared** among tasks
+* **Sparse**: enforcing neural selectivity
+* **Characterized by simple dependencies**: a simple (linear) combination of the representations should be sufficient to generate data
 
 ![Success of deep learning ]({{site.baseurl}}/images/ge1-success-of-deep-learning.png)
 
@@ -103,7 +100,7 @@ Generally, graph embedding aims to represent a graph as low dimensional vectors 
 
 Moreover, the problem of graph embedding is related to two traditional research problems, i.e., **graph analytics and representation learning**. On the one hand, graph analytics aims to mine useful information from graph data. On the other hand, representation learning obtains data representations that make it easier to extract useful information when building classifiers or other predictors. Graph embedding lies in the overlapping of the two problems and focuses on learning the low-dimensional  representations. Note that we distinguish graph representation learning and graph embedding here. Graph representation learning does not require the learned representations to be low dimensional.
 
-Current methodology of dealing with large graph data is approached through Graph analytics. Effective graph analytics provides users a deeper understanding of what is behind the data, and thus can benefit a lot of useful applications such as _node classification, node recommendation, link prediction_ , etc. However, most graph analytics methods suffer the high computation and space cost. While, graph embeddings  converts the graph data into a low dimensional space in which the graph structural information and graph properties are maximally preserved.
+Current methodology of dealing with large graph data is approached through Graph analytics. Effective graph analytics provides users a deeper understanding of what is behind the data, and thus can benefit a lot of useful applications such as _node classification, node recommendation, link prediction_, etc. However, most graph analytics methods suffer the high computation and space cost. While, graph embeddings  converts the graph data into a low dimensional space in which the graph structural information and graph properties are maximally preserved.
 
 _Particularly, NLP and graph data work because graphs have a “natural affinity” with NLP, relation-oriented, providing index-free adjacency. While alleviating sparsity issue in large-scale NLP and enable knowledge transfer across domains and  objects._
 
