@@ -132,4 +132,24 @@ Furthermore, Choice of property, Scalability, Dimensionality of the embedding ar
 
 [3] [Deep Learning, Yoshua Bengio, Ian Goodfellow, Aaron Courville, MIT Press - Chapter 15](http://www.deeplearningbook.org/contents/representation.html)
 
-[4] [Network Embedding with Deep Learning](http://www.cips-cl.org/static/CCL2016/tutorialpdf/T3A_%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97_part3.pdf)
+[4][Representation Learning and Deep Neural Networks](http://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bionics-engineering/computational-neuroscience/5-deep-hand.pdf)
+
+[5] [Network Embedding with Deep Learning](http://www.cips-cl.org/static/CCL2016/tutorialpdf/T3A_%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97_part3.pdf)
+
+[6] [Representation Learning of Text for NLP](https://www.slideshare.net/anujgupta5095/representation-learning-of-text-for-nlp)
+
+[7] [Geometric Deep Learning](http://geometricdeeplearning.com/)
+
+[8] [Deep Learning & NLP: Graphs to the Rescue!](https://www.slideshare.net/roelofp/2014-1021-sicsdlnlpg)
+
+[9] [Representation Learning for Large-Scale Knowledge Graphs](http://nlp.csai.tsinghua.edu.cn/~lzy/talks/adl2015.pdf)
+
+[10] [Representation Learning on Graphs: Methods and Applications](https://arxiv.org/pdf/1709.05584.pdf)
+
+[11] [A Comprehensive Survey of Graph Embedding:Problems, Techniques and Applications](https://arxiv.org/pdf/1709.07604.pdf)
+
+[12] [Graph Embedding Techniques,Applications, and Performance: A Survey](https://arxiv.org/pdf/1705.02801.pdf)
+
+[13] [Representation Learning: A Review and New Perspectives](https://arxiv.org/pdf/1206.5538.pdf)
+
+[14] [An Overview on Data Representation Learning: From Traditional Feature Learning to Recent Deep Learning](https://arxiv.org/pdf/1611.08331.pdf)
