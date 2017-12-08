@@ -141,6 +141,17 @@ Furthermore, Choice of property, Scalability, Dimensionality of the embedding ar
 
 3. **Dimensionality of the embedding**:  Finding  the optimal dimensions of the representation can be hard. For example,  higher  number  of  dimensions  may  increase  the reconstruction precision but will have high time and space complexity.  The  choice  can  also  be  application-specific  depending on the approach: E.g., lower number of dimensions may  result  in  better  link  prediction  accuracy  if  the  chosen model only captures local connections between nodes.
 
+### Applications of Graph embeddings
+
+Having said all the above. You might ask; where will I make use of Graph embeddings. Graph embedding has been adopted in many different  applications as  the  vector  representations  can  be  processed efficiently in both time and space. The applications fall under three of three following categories: node related, edge related and graph related.
+
+* Node Related Applications - Node Classification and semi-supervised learning, Clustering, Node Recommendation/Retrieval/Ranking, Clustering and community detection.
+* Edge Related Applications - Link Prediction and Graph Reconstruction.
+* Graph Related Application - Graph Classification, Visualization and pattern discovery, Network compression.
+
+**So, We have come to the end of the first part of the blog series. You can check the [second part here](https://iamsiva11.github.io/graph-embeddings-2017-part2/)**
+
+
 # REFERENCES
 
 [1] [Pedro Domingos, A Few Useful Things to Know about Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)
