@@ -15,6 +15,8 @@ I have been working in the area of **Network Representation Learning(aka. graph 
 
 Moreover, I'm planning to write this as a **2-part series**. That being said, subsequent part of the series will cover graph embeddings in depth. With the first part being this one, which you are currently reading right now. Second part will go in detail about the current research, state of art graph embedding techniques(approaches like _random walk based_ , _deep learning based_, etc) in detail. The other subsequent parts I haven't planned now would focus on the applied, code implementations side of graph embeddings, detailed write-up on the individual graph embeddings technique.
 
+## Machine learning - First Principles
+
 Pedro Domingos, a CS professor at the University of Washington published a brief and immensely readable paper in 2012[1] that helpfully decomposed machine learning into three components: Representation, Evaluation, and Optimization. In this particular blog post, we are very much concerned about the _representation part_.
 
 ![Machine learning three components ]({{site.baseurl}}/images/repr-opt-eval.png)
