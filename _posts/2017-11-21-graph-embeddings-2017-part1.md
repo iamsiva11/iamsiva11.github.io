@@ -158,7 +158,7 @@ Having said all the above. You might ask; where will I make use of Graph embeddi
 
 [2] [Deep Learning of Representations for Unsupervised and Transfer Learning](www.jmlr.org/proceedings/papers/v27/bengio12a/bengio12a.pdf )
 
-[3] [Deep Learning, Yoshua Bengio, Ian Goodfellow, Aaron Courville, MIT Press - Chapter 15](http://www.deeplearningbook.org/contents/representation.html)
+[3] [Deep Learning, Yoshua Bengio, Ian Goodfellow, Aaron Courville - Chapter 15](http://www.deeplearningbook.org/contents/representation.html)
 
 [4][Representation Learning and Deep Neural Networks](http://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bionics-engineering/computational-neuroscience/5-deep-hand.pdf)
 
