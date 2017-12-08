@@ -5,15 +5,19 @@ layout: post
 ---
 ![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
+In the previous blog post we discussed about representation learning and graph embeddings in general. Which would serve as the foundation for this blog post as this post will go into graph embeddings in much more depth. 
+
 This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
-In the previous blog post we discussed about representation learning and graph embeddings in general. Which would serve as the foundation for this blog post as this post will go into graph embeddings in much more depth. 
+# History annd progress of Graph embeddings
 
 In the early 2000s, researchers developed graph embedding algorithms as part of dimensionality reduction techniques. They would construct  a  similarity  graph  for  a  set  of n D-dimensional  points  based  on  neighbourhood  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where d<<D. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. Laplacian  Eigen maps(LAP)[1] and  Locally  Linear  Embedding(LLE)[2] are  examples  of  algorithms  based  on  this  rationale. 
 
 Since 2010, research on graph embedding has shifted to obtaining scalable  graph embedding techniques which leverage the sparsity of real-world networks. For example, Graph Factorisation [4] uses an approximate factorisation of the adjacency matrix as the embedding. LINE [3] extends this approach and attempts to preserve both first order and second proximities. HOPE [5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix rather than adjacency matrix using a generalised Singular Value Decomposition(SVD). SDNE[6] uses auto-encoders to embed graph nodes and capture highly non-linear dependencies. The new scalable approaches have a time complexity of O(|E|).
 
-Recently, on of the pioneering algorithm in graph embedding technique was “DeepWalk” [8], followed by LINE[3], GraRep[7], etc. DeepWalk,	Walklets, LINE (Large-scale Information Network Embedding),	HPE(Heterogeneous Preference Embedding), APP(Asymmetric Proximity Preserving graph embedding), MF(Matrix Factorisation) are some of the important techniques that came up in the recent past. And more importantly, of these methods general  non-linear  models(e.g.  deep learning based) have shown great promise in capturing the inherent  dynamics of the graph.
+Recently, on of the pioneering algorithm in graph embedding technique was “DeepWalk” [8], followed by LINE[3], GraRep[7], etc. DeepWalk, Walklets, LINE (Large-scale Information Network Embedding),	HPE(Heterogeneous Preference Embedding), APP(Asymmetric Proximity Preserving graph embedding), MF(Matrix Factorisation) are some of the important techniques that came up in the recent past. And more importantly, of these methods general  non-linear  models(e.g.  deep learning based) have shown great promise in capturing the inherent  dynamics of the graph.
+
+## Classification of Graph Embedding Methods
 
 We can group these embedding methods into three broad categories. And explain the characteristics of each of these categories and provide a summary of a few representative approaches for each category:
 
@@ -21,7 +25,6 @@ We can group these embedding methods into three broad categories. And explain th
 * Random Walk based Methods
 * Deep Learning based
 
-## Classification of Graph Embedding Methods
 
 ### Factorisation based methods
 ---
@@ -65,6 +68,8 @@ Deep Learning based methods:
 
 * SDNE - auto-encoder based(encoder decoder methods)
 * GCN - Uses CNN
+
+# A brief summary of pioneering graph embedding techniques
 
 Having seen the taxonomy of approaches in the Graph embeddigns technique; lets have a quick overview of what the important pioneering techniques in graph embedding do. And provide a context of the research developemnt and progress of in the Graph embeddings space:
 
