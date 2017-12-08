@@ -160,7 +160,7 @@ Having said all the above. You might ask; where will I make use of Graph embeddi
 
 [3] [Deep Learning, Yoshua Bengio, Ian Goodfellow, Aaron Courville - Chapter 15](http://www.deeplearningbook.org/contents/representation.html)
 
-[4][Representation Learning and Deep Neural Networks](http://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bionics-engineering/computational-neuroscience/5-deep-hand.pdf)
+[4] [Representation Learning and Deep Neural Networks](http://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bionics-engineering/computational-neuroscience/5-deep-hand.pdf)
 
 [5] [Network Embedding with Deep Learning](http://www.cips-cl.org/static/CCL2016/tutorialpdf/T3A_%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97_part3.pdf)
 
