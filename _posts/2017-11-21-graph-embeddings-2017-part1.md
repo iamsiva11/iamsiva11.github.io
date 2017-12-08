@@ -9,6 +9,10 @@ published: true
 
 I have been working in the area of **Network Representation Learning(aka. graph embeddings)** for nearly a year now. Specifically, my work on graph embeddings deals with **Knowledge graphs**. So, I want to paint a high level picture about graph embeddings in general with this blog post. This blog post is comprises of 2 sections - overview of **representation learning**, overview of **graph embeddings**. Which helps to build a foundation and big picture of the in-depth.
 
+## Focus of this blog post
+
+![Focus of this blog post - input to algorithm]({{site.baseurl}}/images/input-algo-2.png)
+
 Moreover, I'm planning to write this as a **2-part series**. That being said, subsequent part of the series will cover graph embeddings in depth. With the first part being this one, which you are currently reading right now. Second part will go in detail about the current research, state of art graph embedding techniques(approaches like _random walk based_ , _deep learning based_, etc) in detail. The other subsequent parts I haven't planned now would focus on the applied, code implementations side of graph embeddings, detailed write-up on the individual graph embeddings technique.
 
 Pedro Domingos, a CS professor at the University of Washington published a brief and immensely readable paper in 2012[1] that helpfully decomposed machine learning into three components: Representation, Evaluation, and Optimization. In this particular blog post, we are very much concerned about the _representation part_.
@@ -28,8 +32,6 @@ While looking back at older machine learning algorithms, they made great progres
 ![representation learning history]({{site.baseurl}}/images/rep-learn-history-LRG.jpg)
 
 ### Deep learning and Representation Learning
-
-![Success of deep learning ]({{site.baseurl}}/images/ge1-success-of-deep-learning.png)
 
 And coming to deep learning, it exploits this concept by its very nature. Multilayer neural networks can be used to perform feature learning, since they learn a representation of increasing complexity/abstraction of their input at the hidden layer(s) which is subsequently used for classification or regression at the output layer. While the representations or features learned corresponds to the hidden stochastic neurons. Specifically, Restricted Boltzmann machines, auto encoders, deep belief networks, convolutional neural networks are well known architectures for representation Learning. These learnt features are increasingly more informative through layers towards the machine learning task that we intend to perform (e.g. classification).
 
@@ -53,9 +55,9 @@ Furthermore, Deep models follow this modern view of representation learning[4] -
 * **Sparse**: enforcing neural selectivity
 * **Characterized by simple dependencies**: a simple (linear) combination of the representations should be sufficient to generate data
 
-![Focus of this blog post - input to algorithm]({{site.baseurl}}/images/input-algo-2.png)
+![Success of deep learning ]({{site.baseurl}}/images/ge1-success-of-deep-learning.png)
 
-More often than not, how rich your input representation is has huge bearing on the quality of your downstream learning algorithms. 
+> More often than not, how rich your input representation is has huge bearing on the quality of your downstream learning algorithms. 
 
 ### Representation Learning in NLP
 
