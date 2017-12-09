@@ -96,7 +96,7 @@ Other important techniques worth mentioning:
 
 # Conclusion
 
-This post was meant to provide a big-picture for learning and getting started with graph embeddings. In the upcoming posts, I'll highlight some of the current trends and future directions. While going through each important technique in detail.
+This post was meant to provide a big-picture for learning and getting started with graph embeddings. In the upcoming posts, I'll highlight some of the current trends and future directions. While going through each important technique, applied part, performance comparision of these techniques, and some practical advice while working with graph embeddings in detail.
 
 I've undoubtedly failed to mention many other areas that are equally important and noteworthy. Please let me know in the comments below what I missed, where I made a mistake or misrepresented a method, or just which aspect of graph embeddings you find particularly exciting or unexplored.
 
