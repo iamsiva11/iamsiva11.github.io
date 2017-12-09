@@ -149,7 +149,12 @@ Having said all the above. You might ask; where will I make use of Graph embeddi
 * Edge Related Applications - Link Prediction and Graph Reconstruction.
 * Graph Related Application - Graph Classification, Visualization and pattern discovery, Network compression.
 
-**So, We have come to the end of the first part of the blog series. You can check the [second part here](https://iamsiva11.github.io/graph-embeddings-2017-part2/)**
+# Conclusion
+
+This post was meant to provide a the fundementals required for graph embeddings. Please let me know your feedback in the comments below. Thnaks for reading.
+
+**So, We have come to the end of the first part of the blog series. You can check the [second part here](https://iamsiva11.github.io/graph-embeddings-2017-part2/)**. Which will provide a big-picture for learning and getting started with graph embeddings.
+
 
 
 # REFERENCES
