@@ -97,27 +97,33 @@ Other important techniques worth mentioning:
 
 # REFERENCES
 
-[1] M. Belkin and P. Niyogi, “Laplacian eigenmaps and spectral techniques for embedding and clustering,” in NIPS, vol. 14, no. 14, 2001, pp. 585–591.
+[1] [M. Belkin and P. Niyogi, “Laplacian eigenmaps and spectral techniques for embedding and clustering”](http://web.cse.ohio-state.edu/~belkin.8/papers/LEM_NIPS_01.pdf)
 
-[2] S. T. Roweis and L. K. Saul, “Nonlinear dimensionality reduction by locally linear embedding,” Science, vol. 290, no. 5500, pp. 2323–2326, 2000.
+[2] [S. T. Roweis and L. K. Saul, “Nonlinear dimensionality reduction by locally linear embedding”](http://www.robots.ox.ac.uk/~az/lectures/ml/lle.pdf)
 
-[3] J. Tang, M. Qu, M. Wang, M. Zhang, J. Yan, and Q. Mei, “Line: Large-scale information network embedding,” in Proceedings 24th International Conference on World Wide Web, 2015, pp. 1067–1077.
+[3] [J. Tang, M. Qu, M. Wang, M. Zhang, J. Yan, and Q. Mei, “Line: Large-scale information network embedding”](http://dl.acm.org/citation.cfm?id=2741093)
 
-[4] A. Ahmed, N. Shervashidze, S. Narayanamurthy, V. Josifovski,
-and A. J. Smola, “Distributed large-scale natural graph factorization,”
-in Proceedings of the 22nd inter
+[4] [A. Ahmed, N. Shervashidze, S. Narayanamurthy, V. Josifovski,
+and A. J. Smola, “Distributed large-scale natural graph factorization”](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40839.pdf)
 
-[5] M. Ou, P. Cui, J. Pei, Z. Zhang, and W. Zhu, “Asymmetric transitivity preserving graph embedding,” in Proc. of ACM SIGKDD, 2016, pp. 1105–1114.
+[5] [M. Ou, P. Cui, J. Pei, Z. Zhang, and W. Zhu, “Asymmetric transitivity preserving graph embedding”](http://www.kdd.org/kdd2016/papers/files/rfp0184-ouA.pdf)
 
-[6] D. Wang, P. Cui, and W. Zhu, “Structural deep network embedding,”
-in Proceedings of the 22nd International Conference on
-Knowledge Discovery and Data Mining. ACM, 2016, pp. 1225–1234.
+[6] [D. Wang, P. Cui, and W. Zhu, “Structural deep network embedding”](https://dl.acm.org/citation.cfm?id=2939753)
 
-[7] S. Cao, W. Lu, and Q. Xu, “Grarep: Learning graph representations
-with global structural information,” in Proceedings of the 24th ACM
-International on Conference on Information and Knowledge Management.
-ACM, 2015, pp. 891–900.
+[7] [S. Cao, W. Lu, and Q. Xu, “Grarep: Learning graph representations
+with global structural information”](http://dl.acm.org/citation.cfm?id=2806512)
 
-[8] B. Perozzi, R. Al-Rfou, and S. Skiena, “Deepwalk: Online learning
-of social representations,” in Proceedings 20th international conference
-on Knowledge discovery and data mining, 2014, pp. 701–710.
+[8] [B. Perozzi, R. Al-Rfou, and S. Skiena, “Deepwalk: Online learning
+of social representations"](https://arxiv.org/abs/1403.6652)
+
+[9] [Graph Convolutional Networks (GCNs)](https://tkipf.github.io/graph-convolutional-networks/)
+
+[10] [Network Representation Learning: A Revisit in the Big Data Era](http://media.cs.tsinghua.edu.cn/~multimedia/cuipeng/papers/Network%20Representation-Tutorial.pdf)
+
+[11] [Part III: Network Embedding with Deep Learning, Renmin University of China](http://www.cips-cl.org/static/CCL2016/tutorialpdf/T3A_%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97_part3.pdf)
+
+[12] [Convolutional Neural Networks on Graphs](http://www.ntu.edu.sg/home/xbresson/pdf/talk_xbresson_gcnn.pdf)
+
+[13] [Learning Entity and Relation Embeddings for Knowledge Graph Completion](http://nlp.csai.tsinghua.edu.cn/%7Elzy/publications/aaai2015_transr.pdf)
+
+[14] [Aditya Grover, node2vec: Scalable Feature Learning for Networks](https://dl.acm.org/citation.cfm?id=2939672.2939754)
