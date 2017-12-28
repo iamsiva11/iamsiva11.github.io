@@ -2,6 +2,7 @@
 published: true
 title: Graph embeddings 2017 - Part II
 layout: post
+comments: true
 ---
 ![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
