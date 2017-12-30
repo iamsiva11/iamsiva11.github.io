@@ -120,10 +120,9 @@ There are few possible options to acheive this.
 
 * Train the network with more parameters to predict both POS and NER (only change final layers). Thus, your network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html)
 
+![seq2seq extended features]({{site.baseurl}}/images/post3-fig1-abstract.svg)
 
-![seq2seq extended embeddings ]({{site.baseurl}}/images/post3-seq2seq-features-highlevel.svg)
-
-
+![seq2seq embedding matrix]({{site.baseurl}}/images/Fig2-detailed-a-and-b.svg)
 
 
 
@@ -159,7 +158,7 @@ source_embedding = tf.add(source_embedded,source_f1_embedded)
 
 ### Pytorch seq2seq
 
-Pytorch seq2seq code(https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
+Pytorch seq2seq [code](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
 
 Do the necessary changes in the file nmt.py for the exra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens
 
