@@ -3,6 +3,7 @@ published: true
 ---
 ## A novel approach to feed and train extra features in Seq2seq (Tensorflow & Pytorch)
 
+![seq2seq google](https://4.bp.blogspot.com/-6DALk3-hPtA/WO04i5GgXLI/AAAAAAAABtc/2t9mYz4nQDg9jLoHdTkywDUfxIOFJfC_gCLcB/s1600/Seq2SeqDiagram.gif)
 ---
 ---
 
@@ -186,7 +187,6 @@ src_h, (src_h_t, src_c_t) = self.encoder(
 I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [Sandeep Subramanian](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)for his pytorch seq2seq repository.
 
 # References
-
 
 
 
