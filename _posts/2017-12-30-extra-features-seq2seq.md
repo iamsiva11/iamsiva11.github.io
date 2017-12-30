@@ -1,11 +1,11 @@
 ---
 published: true
+title: >-
+  A novel approach to feed and train extra features in Seq2seq (Tensorflow &
+  Pytorch)
+layout: post
 ---
-## A novel approach to feed and train extra features in Seq2seq (Tensorflow & Pytorch)
-
 ![seq2seq google](https://4.bp.blogspot.com/-6DALk3-hPtA/WO04i5GgXLI/AAAAAAAABtc/2t9mYz4nQDg9jLoHdTkywDUfxIOFJfC_gCLcB/s1600/Seq2SeqDiagram.gif)
----
----
 
 ## Table  of Contents
  
