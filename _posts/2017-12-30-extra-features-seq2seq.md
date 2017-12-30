@@ -43,6 +43,73 @@ To get more specific. Below are the foundational seq2seq papers listed chronolog
 * Massive Exploration of Neural Machine Translation Architectures[[arXiv](https://arxiv.org/pdf/1703.03906.pdf)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/Massive-exploration-NMT.md)] :clipboard:
 
 
+# So what’s the problem ? 
+
+The training data for seq2seq involves the use of a parallel corpus (L1-L2) aligned at the level of sentences and words. Traditionally, since sequence to sequence models take only one input features at a time. Currently, there is no way we can feed more than one input feature at once to the seq2seq model.
+
+If we consider the input data of previous statistical based approaches of sequence modelling before seq2seq. The input data on the source tokens contains extra features along with the main tokens. 
+
+For example, let's consider the NMT problem, say I have 2 more feature columns for the corresponding source vocabulary( Feature1 here). For example, consider this below:
+
+```
+Feature1 Feature2 Feature3
+word1 x a
+word2 y b
+word3 y c
+.
+.
+```
+
+So, how do we pass extra feature along with the existing word tokens as input and feed it to the encoder RNN?
+
+Let's consider a case where we want to train the seq2seq model for Nmt problem. Or even sequence labeling/tagging problem like a NER for that matter. 
+
+In natural language processing, it is a common task to extract words or phrases of particular types from a given sentence or paragraph. For example, when performing analysis of a corpus of news articles, we may want to know which countries are mentioned in the articles, and how many articles are related to each of these countries. This is actually a special case of sequence labelling in NLP (others include POS tagging and Chunking), in which the goal is to assign a label to each member in the sequence. In the case of identifying country names, we would like to assign a ‘country’ label to words that form part of a country name, and a ‘irrelevant’ label to all other words. For example, the following is a sentence broken down into tokens, and its desired output after the sequence labelling process:
+
+```
+input = ["Paris", "is", "the", "capital", "of", "France"]
+output = ["I", "I", "I", "I", "I", "C"]
+```
+
+Say we have extra features like pos for every source token and we want a way to train those features. Instead of ignoring them and training just with the typical source-target parallel corpus training way. 
+
+To understand this a little bit more, lets explore the statistical Sequence modelling methods before deep learning.
+
+### Sequence modelling before deep learning 
+
+i.e Statistical sequence modelling
+
+Statistical methods have been the choice for many NLP tasks. Statistical approaches, basically utilize some machine learning methods typically supervised or semi-supervised algorithms  to identify medical entities.
+
+Sequence-based methods, use complete sequence of words instead of only single words or phrases. They try to predict the most likely tag for a sequence of words after being trained on a training set. Hidden Markov Model(HMM). Maximum Entropy Markov Model and Conditional Random Fields are the most common sequence-based approaches and CRFs have frequently demonstrated to be better statistical biomedical NER systems. The primary advantage of CRFs over hidden Markov models is their conditional nature, resulting in the relaxation of the independence assumptions required by HMMs in order to ensure tractable inference. CRFs outperform both MEMMs and HMMs on a number of real-world tasks in many fields, including bioinformatics, computational linguistics and speech recognition.
+
+That said, now let us consider a specific case of how data is fed to CRF models.
+
+### Data input to CRF models
+
+Typically in CRF models, your input file should be in the following format:
+Bill CAPITALIZED noun
+slept non-noun
+here LOWERCASE STOPWORD non-noun
+
+That is, each line represents one token, and has the format:
+feature1 feature2 ... featureN label
+
+The first column is assumed to be the token and the last column is the label. There can be other columns in the middle, which are currently not used. 
+
+The result will be a list of documents, each of which contains a list of (word, label) tuples. For example:
+```
+>>> doc[0][:10]
+[('Paxar', 'N'),
+('Corp', 'N'),
+('said', 'I'),
+('it', 'I'),
+('has', 'I'),
+('acquired', 'I'),
+('Thermo-Print', 'N'),
+```
+
+---
 
 
 
