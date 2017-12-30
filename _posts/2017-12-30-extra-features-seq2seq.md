@@ -10,10 +10,10 @@ published: false
  
 * Intro
 * So what’s the problem?
-* Sequence modelling before deep learning 
-* Data input to CRF models
-* Technique
-	* Pseudocode and illustration
+	* Sequence modelling before deep learning 
+	* Data input to CRF models
+* The technique
+	* Pseudocode
 	* Pytorch code
 	* Tf code 
 * Further notes on the experiment 
@@ -109,12 +109,75 @@ The result will be a list of documents, each of which contains a list of (word, 
 ('Thermo-Print', 'N'),
 ```
 
+Furthermore, features can be generated at run-time. Given the POS tags, we can now continue to generate more features for each of the tokens in the dataset. The features that will be useful in the training process depends on the task at hand. Below are some of the commonly used features for a word w in named entity recognition. To point a few; the words surrounding w, such as the previous and the next word or whether w is in uppercase or lowercase or number, or contains digits or contains a special character. For further notes on this, please [refer](http://www.albertauyeung.com/post/python-sequence-labelling-with-crf/)
+
 ---
 
+# The technique
 
+There are few possible options to acheive this.
 
+* The simplest way is to concatenate features into a single input vector. However this only works if your RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN
 
+* Train the network with more parameters to predict both POS and NER (only change final layers). Thus, your network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html)
 
+### Pseudocode 
 
+```
+Create vocabulary for the new feature.
+Create embedding for the new feature.
+Concatenate the new feature along with the already existing source feature(using simple vector addition)
+```
 
+### Tensorflow seq2seq 
+
+[Tensorflow seq2seq](https://github.com/google/seq2seq)
+
+Do the necessary changes in the file data/input_pipeline.py, data/parallel_data_provider.py, training/utils.py, models/seq2seq_model.py(update the new feature vocab here) for the the exra feature data processing.
+
+In the file [models/basic_seq2seq.py](https://github.com/google/seq2seq/blob/master/seq2seq/models/basic_seq2seq.py)
+
+# Get the Embedding for extra Feature 1
+s1 = tf.fill(tf.shape(features["source_f1_ids"]),self.source_vocab_info.total_size)
+s2 = tf.add(tf.cast(s1,tf.int64),features["source_f1_ids"])
+source_f1_embedded = tf.nn.embedding_lookup(common_embedding,s2)
+
+# concatenate th extra feature along with the source token
+source_embedding = tf.add(source_embedded,source_f1_embedded)
+
+### Pytorch seq2seq
+
+Pytorch seq2seq code(https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
+
+Do the necessary changes in the file nmt.py for the exra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens
+
+In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/master/model.py)
+
+```
+# 1/ Initialise embedding for the extra feature
+def forward(self, input_src, input_trg, input_src_f1,  trg_mask=None, ctx_mask=None):
+
+# Create new embedding for the already defined src_embedding definition/initialiser
+f1_emb = self.src_embedding(input_src_f1)
+
+```
+
+```
+# 2/ Feature concatenation
+
+# Create a randomly initialised tensor of size (batch_size X sequence length, embeding_dim)
+extended_embedding = Variable(torch.randn(80, len(input_src[0]), 500)).cuda()
+     
+# For every batches, pull embedding vectors of the extra feature and concatenate them
+for i, s in enumerate(src_emb):
+  extended_embedding[i,:,:] = (src_emb[i,:,:] + f1_emb[i,:,:])     
+
+self.h0_encoder, self.c0_encoder = self.get_state(input_src)
+
+src_h, (src_h_t, src_c_t) = self.encoder(
+      extended_embedding, (self.h0_encoder, self.c0_encoder))
+
+```
+
+---
 
