@@ -9,7 +9,7 @@ layout: post
 
 ## Table  of Contents
  
-* Intro
+* Introduction
 * So what’s the problem?
 	* Sequence modelling before deep learning 
 	* Data input to CRF models
@@ -20,7 +20,6 @@ layout: post
 * Further notes on the experiment 
 * Conclusion
 
----
 ---
 
 # Introduction
@@ -124,11 +123,11 @@ There are few possible options to acheive this.
 
 ### Pseudocode 
 
-```
+`
 Create vocabulary for the new feature.
 Create embedding for the new feature.
 Concatenate the new feature along with the already existing source feature(using simple vector addition)
-```
+`
 
 ### Tensorflow seq2seq 
 
