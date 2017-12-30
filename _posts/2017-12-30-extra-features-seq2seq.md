@@ -120,14 +120,21 @@ There are few possible options to acheive this.
 
 * Train the network with more parameters to predict both POS and NER (only change final layers). Thus, your network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html)
 
+
+![seq2seq extended embeddings ]({{site.baseurl}}/images/post3-seq2seq-features-highlevel.svg)
+
+
+
+
+
+
 ### Pseudocode 
 
 ```
 1. Create vocabulary for the new feature.
-
 2. Create embedding for the new feature.
-
-3. Concatenate the new feature along with the already existing source feature(using simple vector addition)
+3. Concatenate the new feature along with the already existing source feature
+(using simple vector addition).
 ```
 
 ### Tensorflow seq2seq 
@@ -161,7 +168,9 @@ In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/ma
 ```py
 # 1/ Initialise embedding for the extra feature
 def forward(self, input_src, input_trg, input_src_f1,  trg_mask=None, ctx_mask=None):
+```
 
+```
 # Create new embedding for the already defined src_embedding definition/initialiser
 f1_emb = self.src_embedding(input_src_f1)
 
