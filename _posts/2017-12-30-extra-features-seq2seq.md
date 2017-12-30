@@ -33,15 +33,14 @@ If you want to quickly go through the progress of seq2seq research. Paper notes 
 To get more specific. Below are the foundational seq2seq papers listed chronologically:
 ### Neural Machine Translation(NMT)
 
-* Sequence to Sequence Learning with Neural Networks[[arXiv](https://arxiv.org/abs/1409.3215)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/seq2seq-with-Neural-Networks.md)] :clipboard:
+* Sequence to Sequence Learning with Neural Networks[[arXiv](https://arxiv.org/abs/1409.3215)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/seq2seq-with-Neural-Networks.md)] 
 
-* Neural Machine Translation by Jointly Learning to Align and Translate (2015)[[arXiv](https://arxiv.org/abs/1409.0473)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/nmt-by-Jointly-Learning-to-AlignandTranslate.md)] :clipboard:
+* Neural Machine Translation by Jointly Learning to Align and Translate (2015)[[arXiv](https://arxiv.org/abs/1409.0473)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/nmt-by-Jointly-Learning-to-AlignandTranslate.md)] 
 
 * Effective Approaches to Attention-based Neural Machine Translation
-[[arXiv](https://arxiv.org/abs/1508.04025)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/Effective-Approaches-to-Attention-based-nmt.md)] :clipboard:
+[[arXiv](https://arxiv.org/abs/1508.04025)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/Effective-Approaches-to-Attention-based-nmt.md)] 
 
-* Massive Exploration of Neural Machine Translation Architectures[[arXiv](https://arxiv.org/pdf/1703.03906.pdf)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/Massive-exploration-NMT.md)] :clipboard:
-
+* Massive Exploration of Neural Machine Translation Architectures[[arXiv](https://arxiv.org/pdf/1703.03906.pdf)] [[notes](https://github.com/iamsiva11/DLNLP-papernotes/blob/master/notes/nmt/Massive-exploration-NMT.md)]
 
 # So what’s the problem ? 
 
@@ -71,7 +70,7 @@ input = ["Paris", "is", "the", "capital", "of", "France"]
 output = ["I", "I", "I", "I", "I", "C"]
 ```
 
-Say we have extra features like pos for every source token and we want a way to train those features. Instead of ignoring them and training just with the typical source-target parallel corpus training way. 
+Say we have extra features like POS for every source token and we want a way to train those features. Instead of ignoring them and training just with the typical source-target parallel corpus training way. 
 
 To understand this a little bit more, lets explore the statistical Sequence modelling methods before deep learning.
 
@@ -123,11 +122,13 @@ There are few possible options to acheive this.
 
 ### Pseudocode 
 
-`
-Create vocabulary for the new feature.
-Create embedding for the new feature.
-Concatenate the new feature along with the already existing source feature(using simple vector addition)
-`
+```
+1. Create vocabulary for the new feature.
+
+2. Create embedding for the new feature.
+
+3. Concatenate the new feature along with the already existing source feature(using simple vector addition)
+```
 
 ### Tensorflow seq2seq 
 
@@ -137,13 +138,17 @@ Do the necessary changes in the file data/input_pipeline.py, data/parallel_data_
 
 In the file [models/basic_seq2seq.py](https://github.com/google/seq2seq/blob/master/seq2seq/models/basic_seq2seq.py)
 
+```py
 # Get the Embedding for extra Feature 1
 s1 = tf.fill(tf.shape(features["source_f1_ids"]),self.source_vocab_info.total_size)
 s2 = tf.add(tf.cast(s1,tf.int64),features["source_f1_ids"])
 source_f1_embedded = tf.nn.embedding_lookup(common_embedding,s2)
+```
 
+```py
 # concatenate th extra feature along with the source token
 source_embedding = tf.add(source_embedded,source_f1_embedded)
+```
 
 ### Pytorch seq2seq
 
@@ -153,7 +158,7 @@ Do the necessary changes in the file nmt.py for the exra feature data processing
 
 In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/master/model.py)
 
-```
+```py
 # 1/ Initialise embedding for the extra feature
 def forward(self, input_src, input_trg, input_src_f1,  trg_mask=None, ctx_mask=None):
 
@@ -162,7 +167,7 @@ f1_emb = self.src_embedding(input_src_f1)
 
 ```
 
-```
+```py
 # 2/ Feature concatenation
 
 # Create a randomly initialised tensor of size (batch_size X sequence length, embeding_dim)
@@ -176,7 +181,6 @@ self.h0_encoder, self.c0_encoder = self.get_state(input_src)
 
 src_h, (src_h_t, src_c_t) = self.encoder(
       extended_embedding, (self.h0_encoder, self.c0_encoder))
-
 ```
 
 ---
