@@ -116,16 +116,17 @@ Furthermore, features can be generated at run-time. Given the POS tags, we can n
 
 There are few possible options to acheive this.
 
-* The simplest way is to concatenate features into a single input vector. However this only works if your RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN
+* The simplest way is to concatenate features into a single input vector. However this only works if your RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
 
-* Train the network with more parameters to predict both POS and NER (only change final layers). Thus, your network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html)
+I have sketched below illustration, to provide more clarity.
 
 ![seq2seq extended features]({{site.baseurl}}/images/post3-fig1-abstract.svg)
 
+The figure below illustrates the method of using 2 different vocabulares in a single embedding matrix. Let's say 1600 is set in W, 23 is set in F1. We can pull the vectors belonging to 2 vocabularies in single embedding matrix as shown below. ( For illustration purpose; 1600, 6023 are the active tokens tokens )
+
 ![seq2seq embedding matrix]({{site.baseurl}}/images/Fig2-detailed-a-and-b.svg)
 
-
-
+Further, there is another option where in we train the network with more parameters to predict both POS and NER (only change final layers). Thus, the network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html) here.
 
 ### Pseudocode 
 
@@ -195,7 +196,7 @@ src_h, (src_h_t, src_c_t) = self.encoder(
 
 # Conclusion
 
-I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [Sandeep Subramanian](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)for his pytorch seq2seq repository.
+I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq repository.
 
 # References
 
