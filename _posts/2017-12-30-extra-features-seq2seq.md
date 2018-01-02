@@ -17,7 +17,7 @@ layout: post
 	* Pseudocode
 	* Pytorch code
 	* Tf code 
-* Further notes on the experiment 
+* Notes on the experiment 
 * Conclusion
 
 ---
@@ -122,7 +122,7 @@ I have sketched below illustration, to provide more clarity.
 
 ![seq2seq extended features]({{site.baseurl}}/images/post3-fig1-abstract.svg)
 
-The figure below illustrates the method of using 2 different vocabulares in a single embedding matrix. Let's say 1600 is set in W, 23 is set in F1. We can pull the vectors belonging to 2 vocabularies in single embedding matrix as shown below. ( For illustration purpose; 1600, 6023 are the active tokens tokens )
+The figure below illustrates the method of using 2 different vocabulares in a single embedding matrix. Let's say 1600 is set in W, 23 is set in F1. We can pull the vectors belonging to 2 vocabularies in single embedding matrix as shown below. (For illustration purpose; 1600, 6023 are the active tokens tokens)
 
 ![seq2seq embedding matrix]({{site.baseurl}}/images/Fig2-detailed-a-and-b.svg)
 
@@ -194,11 +194,19 @@ src_h, (src_h_t, src_c_t) = self.encoder(
 
 ---
 
+# Notes on the experiment 
+
+## Results and Performance
+
+The experiment was carried out on a single modern GPU (Geforce GTX 1080(and GTX 1080ti), Tesla K80). With extended features approach a significant boost in the F1-score was inferred, close to 4-5% which was impressive. 
+
+This type of model has a large number of available hyperparameters, or knobs we can tune, all of which will affect training time and final performance. The typical training time for 100K epochs range from 6-8 hours. Hence, carrying out the experiment for large no of iterations resulted in waiting for 4-5 days to evaluate the model. 
+
+Other significant hyperparameters used in the experiment used to get higher accuracy were Maximum sequence length - 50; Bidirectional RNN as encoder ; Bahdanau Attention based Decoder; ADAM as optimiser; learning rate as  0.0001; 1 layer of encoder and 2 layers of decoder ; GRU cells were used as RNN units for both encoder and decoder;  beam search methodology for decoding.
+
 # Conclusion
 
 I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq repository.
 
 # References
-
-
 
