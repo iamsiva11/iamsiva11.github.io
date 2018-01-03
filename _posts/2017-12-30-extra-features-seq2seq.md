@@ -231,7 +231,7 @@ Other significant hyperparameters used in the experiment used to get higher accu
 
 ### Additional notes
 
-Also I experimented with Concatenation instead of addition by extending the embedding dimension. While getting inspired from these [papers](https://arxiv.org/pdf/1606.03475.pdf), [papers](https://arxiv.org/pdf/1511.05942.pdf) and  Bidirectional LSTM layers where we can concatenate (default), multiplication, average, and sum. It didn't give any better results though
+Also I experimented with Concatenation instead of addition by extending the embedding dimension. While getting inspired from these [papers](https://arxiv.org/pdf/1606.03475.pdf), [papers](https://arxiv.org/pdf/1511.05942.pdf) and  Bidirectional LSTM layers where we can concatenate (default), multiplication, average, and sum the outputs. This approach didn't give any better results though.
 
 Further, the vector addition operation of feature embeddings we performed earlier is a hacky way of avoiding the matrix multiplication of the embedding matrix and the one-hot vector. This way we save time and the computation cost.
 
