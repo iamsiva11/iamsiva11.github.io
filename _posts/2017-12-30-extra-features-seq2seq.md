@@ -177,7 +177,7 @@ In the above , we fill the source_f1_ids the  size of the source vocabulary. And
 
 Pytorch seq2seq [code](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
 
-Do the necessary changes in the file nmt.py for the extra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens.
+Do the necessary changes in the file nmt.py(driver code) for the extra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens.
 
 In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/master/model.py)
 
@@ -201,11 +201,21 @@ self.h0_encoder, self.c0_encoder = self.get_state(input_src)
 
 src_h, (src_h_t, src_c_t) = self.encoder(
       extended_embedding, (self.h0_encoder, self.c0_encoder))
+
+"""
+Note: If using only CPU, can remove .cuda()
+[i,:,:] - numpy style ndarrays slicing
+"""
+
 ```
 
 Which is same as what we did above in tensorflow. 
 
 ---
+
+The source code for reproducing the above results can be found in the following github repository:
+
+
 
 ---
 
@@ -224,3 +234,9 @@ Other significant hyperparameters used in the experiment used to get higher accu
 I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq repository.
 
 # References
+
+Xuezhe Ma and Eduard Hovy,  ["End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF"](http://www.aclweb.org/anthology/P16-1101)
+
+Lafferty, J., McCallum, A., Pereira, F. (2001). [“Conditional random fields: Probabilistic models for segmenting and labeling sequence data”.](http://repository.upenn.edu/cgi/viewcontent.cgi?article=1162&context=cis_papers) Proc. 18th International Conf. on Machine Learning. Morgan Kaufmann. pp. 282–289.
+
+Erdogan, H. (2010). [Sequence Labeling: Generative and Discriminative Approaches - Hidden Markov Models, Conditional Random Fields and Structured SVMs](http://www.icmla-conference.org/icmla10/CFP_Tutorial_files/hakan.pdf). ICMLA 2010 Tutorial.
