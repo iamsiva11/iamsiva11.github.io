@@ -145,44 +145,55 @@ Do the necessary changes in the file data/input_pipeline.py, data/parallel_data_
 
 In the file [models/basic_seq2seq.py](https://github.com/google/seq2seq/blob/master/seq2seq/models/basic_seq2seq.py)
 
+
 ```py
-# Get the Embedding for extra Feature 1
+# Get the Embedding Matrix
+common_embedding = self.source_embedding
+
+# Get the Embedding for the Main Features
+source_embedded = tf.nn.embedding_lookup(common_embedding,features["source_ids"])
+
+# Get the Embedding for Extra Feature
 s1 = tf.fill(tf.shape(features["source_f1_ids"]),self.source_vocab_info.total_size)
 s2 = tf.add(tf.cast(s1,tf.int64),features["source_f1_ids"])
 source_f1_embedded = tf.nn.embedding_lookup(common_embedding,s2)
+
+# combine the emebdding extra feature along with the source token using vector addition
+# new extended source embedding 
+extended_embedding = tf.add(source_embedded,source_f1_embedded)
+
+"""
+Note:
+tf.fill - Creates a tensor filled with a scalar value. This operation creates a tensor of shape dims and fills it with value. (Equivalent to np.full)
+tf.nn.embedding_lookup - embedding_lookup function retrieves rows(ie. the embedding vector) of the params((ie. the word ids) tensor.
+# tf.add returns x + y element-wise
+"""
 ```
 
-```py
-# concatenate th extra feature along with the source token
-source_embedding = tf.add(source_embedded,source_f1_embedded)
-```
+In the above , we fill the source_f1_ids the  size of the source vocabulary. And add the existing feature ids of extra feature to the size of the source vocabulary. This way we make the embedding of the extra feature to belong in the same embedding matrix.
+
 
 ### Pytorch seq2seq
 
 Pytorch seq2seq [code](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
 
-Do the necessary changes in the file nmt.py for the exra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens
+Do the necessary changes in the file nmt.py for the extra feature data processing to pass the data path, vocabulary,etc. Likewise already did for the source tokens.
 
 In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/master/model.py)
 
 ```py
-# 1/ Initialise embedding for the extra feature
+# 1/ Initialise embedding for the extra feature (input_src_f1)
 def forward(self, input_src, input_trg, input_src_f1,  trg_mask=None, ctx_mask=None):
-```
 
-```
 # Create new embedding for the already defined src_embedding definition/initialiser
 f1_emb = self.src_embedding(input_src_f1)
 
-```
-
-```py
-# 2/ Feature concatenation
+# Combining the source features
 
 # Create a randomly initialised tensor of size (batch_size X sequence length, embeding_dim)
 extended_embedding = Variable(torch.randn(80, len(input_src[0]), 500)).cuda()
      
-# For every batches, pull embedding vectors of the extra feature and concatenate them
+# For every batches, pull embedding vectors of the extra feature and combine them
 for i, s in enumerate(src_emb):
   extended_embedding[i,:,:] = (src_emb[i,:,:] + f1_emb[i,:,:])     
 
@@ -192,6 +203,10 @@ src_h, (src_h_t, src_c_t) = self.encoder(
       extended_embedding, (self.h0_encoder, self.c0_encoder))
 ```
 
+Which is same as what we did above in tensorflow. 
+
+---
+
 ---
 
 # Notes on the experiment 
@@ -200,7 +215,7 @@ src_h, (src_h_t, src_c_t) = self.encoder(
 
 The experiment was carried out on a single modern GPU (Geforce GTX 1080(and GTX 1080ti), Tesla K80). With extended features approach a significant boost in the F1-score was inferred, close to 4-5% which was impressive. 
 
-This type of model has a large number of available hyperparameters, or knobs we can tune, all of which will affect training time and final performance. The typical training time for 100K epochs range from 6-8 hours. Hence, carrying out the experiment for large no of iterations resulted in waiting for 4-5 days to evaluate the model. 
+This type of model has a large number of available hyperparameters, or knobs we can tune, all of which will affect training time and final performance. The typical training time for 100K epochs range from 6-8 hours for 1 million sentences ( Yes, the training time majorly depends on the dataset size). Hence, carrying out the experiment for large no of iterations resulted in waiting for 4-5 days to evaluate the model. 
 
 Other significant hyperparameters used in the experiment used to get higher accuracy were Maximum sequence length - 50; Bidirectional RNN as encoder ; Bahdanau Attention based Decoder; ADAM as optimiser; learning rate as  0.0001; 1 layer of encoder and 2 layers of decoder ; GRU cells were used as RNN units for both encoder and decoder;  beam search methodology for decoding.
 
@@ -209,4 +224,3 @@ Other significant hyperparameters used in the experiment used to get higher accu
 I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq repository.
 
 # References
-
