@@ -6,13 +6,32 @@ comments: true
 ---
 ![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
+
+## Table  of Contents
+ 
+* Introduction
+* History annd progress of Graph embeddings
+* Classification of Graph Embedding Methods
+	* Factorisation based methods
+	* Random Walk based Methods
+	* Deep Learning based
+* A brief summary of pioneering graph embedding techniques      
+* Conclusion
+* Advanced resources for further learning
+
+---
+
+# Introduction
+
 In the previous blog post we discussed about **_representation learning and graph embeddings_** in general. Which would serve as the foundation for this blog post, as this post will go into graph embeddings in much more depth. 
 
 This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
+---
+
 # History annd progress of Graph embeddings
 
-In the _**early 2000s**_, researchers developed graph embedding algorithms as part of _dimensionality reduction_ techniques. They would construct  a  _similarity  graph_  for  a  set  of n _D-dimensional_  points  based  on  neighbourhood  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where _d<<D_. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. **Laplacian  Eigen maps(LAP)**[1] and **Locally  Linear  Embedding(LLE)**[2] are  examples  of  algorithms  based  on  this  rationale. 
+In the _**early 2000s**_, researchers developed graph embedding algorithms as part of _dimensionality reduction_ techniques. They would construct  a  _similarity  graph_  for  a  set  of n _D-dimensional_  points  based  on  **neighbourhood**  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where _d<<D_. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. **Laplacian  Eigen maps(LAP)**[1] and **Locally  Linear  Embedding(LLE)**[2] are  examples  of  algorithms  based  on  this  rationale. 
 
 _**Since 2010**_, research on graph embedding has shifted to obtaining scalable graph embedding techniques which leverage the sparsity of real-world networks. For example, **Graph Factorisation**[4] uses an approximate factorisation of the adjacency matrix as the embedding. **LINE(Large-scale Information Network Embedding)**[3] extends this approach and attempts to preserve both first order and second proximities. **HOPE**[5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix rather than adjacency matrix using a generalised Singular Value Decomposition(SVD). **SDNE(Structural deep network embedding)**[6] uses auto-encoders to embed graph nodes and capture highly non-linear dependencies.
 
@@ -50,7 +69,7 @@ Random walks have been used to approximate many properties in the graph includin
 
 Embedding techniques using random walks on graphs to obtain node representations have been proposed: **DeepWalk** and **node2vec** are two examples. 
 
-In random walk based  methods,  the  mixture  of  equivalences  can  be  controlled  to  a  certain  extent  by  varying  the  random  walk parameters. Embeddings learnt  by node2vec with  parameters set  to  prefer  BFS  random  walk  would  cluster  structurally equivalent  nodes  together. 
+In random walk based  methods,  the  mixture  of  equivalences  can  be  controlled  to  a  certain  extent  by  varying  the  random  walk parameters. Embeddings learnt  by node2vec with  parameters set  to  prefer  BFS  random  walk  would  cluster  **structurally equivalent**  nodes  together. 
 
 On  the  other  hand,  methods which directly preserve k-hop distances between nodes (GF,LE and LLE with k=1 and HOPE and SDNE with k >1) cluster neighbouring nodes together.
 
@@ -64,12 +83,12 @@ Random Walk based Methods:
 
 The growing research on deep learning has led to a deluge of deep neural networks based methods applied to graphs. Deep **auto-encoders** have been e.g. used for dimensionality reduction  due to their ability to model non-linear structure in the data. We can interpret the weights of the auto-encoder as a representation of  the  structure  of  the  graph. Recently, SDNE utilised this ability of deep auto-encoder to generate an embedding model that can capture non-linearity in graphs. 
 
-As  a  popular  deep  learning model, Convolutional Neural Network (CNN) and its variants  have  been  widely  adopted  in  graph  embedding. Recent one being, * **Graph Convolutional Networks(GCN)**[9] [ICLR 2017].
+As  a  popular  deep  learning model, Convolutional Neural Network (CNN) and its variants  have  been  widely  adopted  in  graph  embedding. Recent one being, **Graph Convolutional Networks**(GCN)[9] [ICLR 2017].
 
 Deep Learning based methods:
 
-* **SDNE** - auto-encoder based(encoder decoder methods)
-* **GCN** - Uses CNN
+* **SDNE** - auto-encoder based(encoder decoder methods).
+* **GCN** - CNN based.
 
 # A brief summary of pioneering graph embedding techniques
 
@@ -77,15 +96,15 @@ Having seen the taxonomy of approaches in the Graph embeddings technique; lets h
 
 * **Laplacian Eigenmaps, Locally Linear Embedding** [Early 2000s] : Graph -> adjacency matrix -> latent representation (Belongs to Factorisation based methods)
 
-* **HOPE(Higher-Order Proximity preserved Embedding)** or (Asymmetric Proximity Preserving graph embedding)APP : [KDD 2016] - preserve high-order proximities, capturing the asymmetric transitivity. (Belongs to Factorisation based methods)
+* **HOPE**(Higher-Order Proximity preserved Embedding) [KDD 2016] :  preserve high-order proximities, capturing the asymmetric transitivity. (Belongs to Factorisation based methods). aka Asymmetric Proximity Preserving graph embedding(APP).
 
-* **DeepWalk** : [KDD'14] - Basic idea: apply word2vec to non-NLP data. Random walk distance is known to be good features for many problems (i.e. Node sentences + word2vec) (Belongs to Randomwalk based methods)
+* **DeepWalk** : [KDD'14] : Basic idea: apply word2vec to non-NLP data. Random walk distance is known to be good features for many problems (i.e. Node sentences + word2vec) (Belongs to Randomwalk based methods)
 
-* **node2vec** : [KDD'16] - DeepWalk + more sampling strategies (Belongs to Randomwalk based methods)
+* **node2vec** [KDD'16] : DeepWalk + more sampling strategies (Belongs to Randomwalk based methods)
 
-* **SDNE** : [KDD'16] (Structural Deep Network Embedding): Use  deep  autoencoders  to preserve  the  first  and  second  order  network proximities(i.e. Deep autoencoder + First-order + second-order proximity). They achieve this by jointly optimizing the two proximities. (Deep-learning based methods)
+* **SDNE** [KDD'16] : (Structural Deep Network Embedding): Use  deep  autoencoders  to preserve  the  first  and  second  order  network proximities(i.e. Deep autoencoder + First-order + second-order proximity). They achieve this by jointly optimizing the two proximities. (Deep-learning based methods)
 
-* **LINE** : [Tang’15] (Large-scale Information Network Embedding) - Shallow + first-order + second-order proximity (Belongs to none of the 3 broad categories mentioned above)
+* **LINE** [Tang’15] : (Large-scale Information Network Embedding) - Shallow + first-order + second-order proximity (Belongs to none of the 3 broad categories mentioned above)
 
 Other important techniques worth mentioning:
 
@@ -109,10 +128,6 @@ I've undoubtedly failed to mention many other areas that are equally important a
 [A curated list of network embedding techniques.](https://github.com/chihming/awesome-network-embedding)
 
 [Must-read papers on network representation learning (NRL)/network embedding (NE)](https://github.com/thunlp/NRLPapers)
-
-
-
-
 
 
 # REFERENCES
