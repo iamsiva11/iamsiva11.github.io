@@ -169,13 +169,6 @@ tf.nn.embedding_lookup - embedding_lookup function retrieves rows(ie. the embedd
 In the above , we fill the source_f1_ids the  size of the source vocabulary. And add the existing feature ids of extra feature to the size of the source vocabulary. This way we make the embedding of the extra feature to belong in the same embedding matrix.
 
 
-{% highlight python %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-
-
 ### Pytorch seq2seq
 
 Pytorch seq2seq [code](https://github.com/MaximumEntropy/Seq2Seq-PyTorch)
