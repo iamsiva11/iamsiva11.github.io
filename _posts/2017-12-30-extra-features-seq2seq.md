@@ -78,9 +78,9 @@ Say we have extra features like POS for every source token and we want a way to 
 
 i.e Statistical sequence modelling
 
-Statistical methods have been the choice for many NLP tasks. Statistical approaches, basically utilize some machine learning methods typically supervised or semi-supervised algorithms  to identify medical entities.
+Statistical methods have been the choice for many NLP tasks. Statistical approaches, basically utilize some machine learning methods typically supervised or semi-supervised algorithms to identify entities.
 
-Sequence-based methods, use complete sequence of words instead of only single words or phrases. They try to predict the most likely tag for a sequence of words after being trained on a training set. Hidden Markov Model(HMM). Maximum Entropy Markov Model and Conditional Random Fields are the most common sequence-based approaches and CRFs have frequently demonstrated to be better statistical biomedical NER systems. The primary advantage of CRFs over hidden Markov models is their conditional nature, resulting in the relaxation of the independence assumptions required by HMMs in order to ensure tractable inference. CRFs outperform both MEMMs and HMMs on a number of real-world tasks in many fields, including bioinformatics, computational linguistics and speech recognition.
+Sequence-based methods, use complete sequence of words instead of only single words or phrases. They try to predict the most likely tag for a sequence of words after being trained on a training set. **Hidden Markov Model(HMM)**. **Maximum Entropy Markov Model** and **Conditional Random Fields** are the most common sequence-based approaches and CRFs have frequently demonstrated to be better statistical biomedical NER systems. The primary advantage of CRFs over hidden Markov models is their conditional nature, resulting in the relaxation of the independence assumptions required by HMMs in order to ensure tractable inference. CRFs outperform both MEMMs and HMMs on a number of real-world tasks in many fields, including bioinformatics, computational linguistics and speech recognition.
 
 That said, now let us consider a specific case of how data is fed to CRF models.
 
@@ -120,7 +120,7 @@ Furthermore, features can be generated at run-time. Given the POS tags, we can n
 
 There are few possible options to pass extra tokens to the seq2seq encoder.
 
-* The simplest way is to concatenate features into a single input vector. However this only works if our RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
+* The simplest way is to combine features into a single input vector. However this only works if our RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to combine the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and combine all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and combine them all into one vector for the RNN.
 
 I have sketched below illustration, to provide more clarity.
 
@@ -132,14 +132,6 @@ The figure below illustrates the method of using 2 different vocabulares in a si
 
 Further, there is another option where in we train the network with more parameters to predict both POS and NER (only change final layers). Thus, the network would "internally" leverage the information(I haven't tried this yet, but worth experimenting). As pointed out by the author of this blog [post](https://guillaumegenthial.github.io/sequence-tagging-with-tensorflow.html) here.
 
-### Pseudocode 
-
-```
-1. Create vocabulary for the new feature.
-2. Create embedding for the new feature.
-3. Concatenate the new feature along with the already existing source feature
-(using simple vector addition).
-```
 
 ### Tensorflow seq2seq 
 
@@ -228,7 +220,7 @@ The source code for reproducing the above results can be found in the following 
 
 ### Results and Performance
 
-The experiment was carried out on a single modern GPU (Geforce GTX 1080, 1080ti and Tesla K80). With extended features approach a significant boost in the F1-score was inferred, close to 4-5% which was impressive. 
+The experiment was carried out on a single modern GPU _(Geforce GTX 1080, 1080ti and Tesla K80)_. With extended features approach a significant boost in the _F1-score_ was inferred, close to **4-5%** which was impressive. 
 
 This type of model has a large number of available hyperparameters, or knobs we can tune, all of which will affect training time and final performance. The typical training time for 100K epochs range from 6-8 hours for 1 million sentences ( Yes, the training time majorly depends on the dataset size). Hence, carrying out the experiment for large no of iterations resulted in waiting for 4-5 days to evaluate the model. 
 
