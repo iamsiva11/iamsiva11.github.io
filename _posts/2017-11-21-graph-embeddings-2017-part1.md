@@ -114,7 +114,7 @@ _That's a wrap on the representation learning part. Let's get deeper into Graph 
 
 ---
 
-# Representation learning in non-Euclidean domains(graphs)
+# Representation learning in non-Euclidean domains
 
 In the last decade, deep learning techniques for representation learning disrupted the field of Computer Vision, speech and text, which we have seen above. That said, research on DL techniques has mainly focused so far on data defined on Euclidean domains (i.e. grids, sequences). There have been very few studies involving representation learning on network data (for example, social network data). Recently, methods which use the representation of graph nodes in vector space have gained traction from the research community.
 
