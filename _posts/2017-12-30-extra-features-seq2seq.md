@@ -88,10 +88,11 @@ That said, now let us consider a specific case of how data is fed to CRF models.
 
 Typically in CRF models, our input file should be in the following format:
 
-`Bill CAPITALIZED noun`
-`slept non-noun`
-`here LOWERCASE STOPWORD non-noun`
-
+```
+Bill CAPITALIZED noun
+slept non-noun
+here LOWERCASE STOPWORD non-noun
+```
 
 That is, each line represents one token, and has the format:
 feature1 feature2 ... featureN label
@@ -99,6 +100,7 @@ feature1 feature2 ... featureN label
 The first column is assumed to be the token and the last column is the label. There can be other columns in the middle, which are currently not used. 
 
 The result will be a list of documents, each of which contains a list of (word, label) tuples. For example:
+
 ```
 >>> doc[0][:10]
 [('Paxar', 'N'),
@@ -116,7 +118,7 @@ Furthermore, features can be generated at run-time. Given the POS tags, we can n
 
 # The technique
 
-There are few possible options to achieve this.
+There are few possible options to pass extra tokens to the seq2seq encoder.
 
 * The simplest way is to concatenate features into a single input vector. However this only works if our RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
 
