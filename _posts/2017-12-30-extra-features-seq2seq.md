@@ -224,7 +224,7 @@ The source code for reproducing the above results can be found in the following 
 
 ### Results and Performance
 
-The experiment was carried out on a single modern GPU (Geforce GTX 1080(and GTX 1080ti), Tesla K80). With extended features approach a significant boost in the F1-score was inferred, close to 4-5% which was impressive. 
+The experiment was carried out on a single modern GPU (Geforce GTX 1080, 1080ti and Tesla K80). With extended features approach a significant boost in the F1-score was inferred, close to 4-5% which was impressive. 
 
 This type of model has a large number of available hyperparameters, or knobs we can tune, all of which will affect training time and final performance. The typical training time for 100K epochs range from 6-8 hours for 1 million sentences ( Yes, the training time majorly depends on the dataset size). Hence, carrying out the experiment for large no of iterations resulted in waiting for 4-5 days to evaluate the model. 
 
