@@ -72,7 +72,7 @@ output = ["I", "I", "I", "I", "I", "C"]
 
 Say we have extra features like POS for every source token and we want a way to train those features. Instead of ignoring them and training just with the typical source-target parallel corpus training way. 
 
-To understand this a little bit more, lets explore the statistical Sequence modelling methods before deep learning.
+To understand this a little bit more, let's explore the statistical Sequence modelling methods before deep learning.
 
 ### Sequence modelling before deep learning 
 
@@ -114,7 +114,7 @@ Furthermore, features can be generated at run-time. Given the POS tags, we can n
 
 # The technique
 
-There are few possible options to acheive this.
+There are few possible options to achieve this.
 
 * The simplest way is to concatenate features into a single input vector. However this only works if your RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
 
@@ -141,7 +141,7 @@ Further, there is another option where in we train the network with more paramet
 
 [Tensorflow seq2seq](https://github.com/google/seq2seq)
 
-Do the necessary changes in the file data/input_pipeline.py, data/parallel_data_provider.py, training/utils.py, models/seq2seq_model.py(update the new feature vocab here) for the the exra feature data processing.
+Do the necessary changes in the file data/input_pipeline.py, data/parallel_data_provider.py, training/utils.py, models/seq2seq_model.py(update the new feature vocab here) for the the extra feature data processing.
 
 In the file [models/basic_seq2seq.py](https://github.com/google/seq2seq/blob/master/seq2seq/models/basic_seq2seq.py)
 
@@ -158,7 +158,7 @@ s1 = tf.fill(tf.shape(features["source_f1_ids"]),self.source_vocab_info.total_si
 s2 = tf.add(tf.cast(s1,tf.int64),features["source_f1_ids"])
 source_f1_embedded = tf.nn.embedding_lookup(common_embedding,s2)
 
-# combine the emebdding extra feature along with the source token using vector addition
+# combine the embedding extra feature along with the source token using vector addition
 # new extended source embedding 
 extended_embedding = tf.add(source_embedded,source_f1_embedded)
 
@@ -244,7 +244,7 @@ Moreover, I like pytorch for quick experimentation and research purposes though.
 
 # Conclusion
 
-I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq repository.
+I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq code.
 
 ---
 
