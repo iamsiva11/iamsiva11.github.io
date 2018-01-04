@@ -11,8 +11,8 @@ published: true
  
 * Introduction
 * Representation Learning
- 	* Representation Learning in Vision & Text
-    * Representation learning in non-Euclidean domains(graphs)
+	* Representation Learning in Vision & Text
+    * Representation learning in non-Euclidean domains
 * Graph embeddings
 	* Graph embeddings Challenges
 	* Applications of Graph embeddings
@@ -21,7 +21,6 @@ published: true
 ---
 
 You can read the[second part here](https://iamsiva11.github.io/Graph-embeddings-part2/) if you feel you have enough foundations and want to jump into **Graph embeddings** straight away.
-
 
 # Introduction
 
