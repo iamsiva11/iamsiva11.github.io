@@ -6,15 +6,15 @@ comments: true
 ---
 ![graph vizualisation in 3d]({{site.baseurl}}/images/3d-graph-viz.png)
 
-In the previous blog post we discussed about _representation learning and graph embeddings_ in general. Which would serve as the foundation for this blog post, as this post will go into graph embeddings in much more depth. 
+In the previous blog post we discussed about **_representation learning and graph embeddings_** in general. Which would serve as the foundation for this blog post, as this post will go into graph embeddings in much more depth. 
 
-This is the second part of the Graph embeddings 2017 blog series. You can read the[first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
+This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
 
 # History annd progress of Graph embeddings
 
 In the _**early 2000s**_, researchers developed graph embedding algorithms as part of _dimensionality reduction_ techniques. They would construct  a  _similarity  graph_  for  a  set  of n _D-dimensional_  points  based  on  neighbourhood  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where _d<<D_. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. **Laplacian  Eigen maps(LAP)**[1] and **Locally  Linear  Embedding(LLE)**[2] are  examples  of  algorithms  based  on  this  rationale. 
 
-_**Since 2010**_, research on graph embedding has shifted to obtaining scalable graph embedding techniques which leverage the sparsity of real-world networks. For example, **Graph Factorisation**[4] uses an approximate factorisation of the adjacency matrix as the embedding. **LINE(Large-scale Information Network Embedding)**[3] extends this approach and attempts to preserve both first order and second proximities. **HOPE**[5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix rather than adjacency matrix using a generalised Singular Value Decomposition(SVD). **SDNE(Structural deep network embedding)**[6] uses auto-encoders to embed graph nodes and capture highly non-linear dependencies. The new scalable approaches have a time complexity of O(|E|).
+_**Since 2010**_, research on graph embedding has shifted to obtaining scalable graph embedding techniques which leverage the sparsity of real-world networks. For example, **Graph Factorisation**[4] uses an approximate factorisation of the adjacency matrix as the embedding. **LINE(Large-scale Information Network Embedding)**[3] extends this approach and attempts to preserve both first order and second proximities. **HOPE**[5] extends LINE to attempt preserve  high-order  proximity  by  decomposing  the  similarity matrix rather than adjacency matrix using a generalised Singular Value Decomposition(SVD). **SDNE(Structural deep network embedding)**[6] uses auto-encoders to embed graph nodes and capture highly non-linear dependencies. The new scalable approaches have a time complexity of O(E).
 
 _Recently_, on of the **pioneering algorithm** in graph embedding technique was “**DeepWalk**” [8], followed by **LINE**[3], **GraRep**[7], etc. _DeepWalk, Walklets, LINE[3], HPE(Heterogeneous Preference Embedding), APP(Asymmetric Proximity Preserving graph embedding), MF(Matrix Factorisation)_ are some of the important techniques that came up in the recent past. And more importantly, of these methods general  _non-linear  models(e.g.  deep learning based)_ have shown great promise in capturing the inherent  dynamics of the graph.
 
