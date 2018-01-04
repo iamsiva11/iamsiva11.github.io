@@ -86,13 +86,12 @@ That said, now let us consider a specific case of how data is fed to CRF models.
 
 ### Data input to CRF models
 
-Typically in CRF models, your input file should be in the following format:
+Typically in CRF models, our input file should be in the following format:
 
-`
-Bill CAPITALIZED noun
-slept non-noun
-here LOWERCASE STOPWORD non-noun
-`
+`Bill CAPITALIZED noun`
+`slept non-noun`
+`here LOWERCASE STOPWORD non-noun`
+
 
 That is, each line represents one token, and has the format:
 feature1 feature2 ... featureN label
@@ -119,7 +118,7 @@ Furthermore, features can be generated at run-time. Given the POS tags, we can n
 
 There are few possible options to achieve this.
 
-* The simplest way is to concatenate features into a single input vector. However this only works if your RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
+* The simplest way is to concatenate features into a single input vector. However this only works if our RNN takes vector input, not discrete inputs (LongTensor) through an embedding layer. In that case we would want to concatenate the extra features after the input is embedded. Considering the features are also discrete, we would want multiple embedding layers, one for each, and concatenate all the results (eg. Could be an embedding of POS, or simply one-hot.). Precisely, we forward the features through the relevant embedding layers, and concatenate them all into one vector for the RNN.
 
 I have sketched below illustration, to provide more clarity.
 
