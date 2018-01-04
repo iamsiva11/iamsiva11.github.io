@@ -7,7 +7,27 @@ published: true
 
 ![Knowledge graphs]({{site.baseurl}}/images/ge1-knowledge-graph.png)
 
-I have been working in the area of **Network Representation Learning(aka. graph embeddings)** for nearly a year now. Specifically, my work on graph embeddings deals with **Knowledge graphs**. So, I want to paint a high level picture about graph embeddings in general with this blog post. This blog post is comprises of 2 sections - overview of **representation learning**, overview of **graph embeddings**. Which helps to build a foundation and big picture of the in-depth.
+## Table  of Contents
+ 
+* Introduction
+* Representation Learning
+ 	* Representation Learning in Vision & Text
+    * Representation learning in non-Euclidean domains(graphs)
+* Graph embeddings
+	* Graph embeddings Challenges
+	* Applications of Graph embeddings
+* Conclusion
+
+---
+
+You can read the[second part here](https://iamsiva11.github.io/Graph-embeddings-part2/) if you feel you have enough foundations and want to jump into **Graph embeddings** straight away.
+
+
+# Introduction
+
+I have been working in the area of **Network Representation Learning(aka. graph embeddings)** for nearly a year now. Specifically, my work on graph embeddings deals with **Knowledge graphs**. So, I want to paint a high level picture about graph embeddings in general with this blog post. This blog post comprises of 2 sections - overview of **representation learning**, overview of **graph embeddings**. Which helps to build a foundation and big picture of the in-depth.
+
+---
 
 ## Focus of this blog post
 
@@ -23,6 +43,8 @@ Pedro Domingos, a CS professor at the University of Washington published a brief
 
 Many information processing tasks can be very easy or very diﬃcult depending on how the information is represented. This is a general principle applicable to daily life, to computer science in general, and to machine learning. For example, it is straightforward for a person to divide 210 by 6 using long division. The task becomes considerably less straightforward if it is instead posed using the Roman numeral representation of the numbers. Most modern people asked to divide CC by VI would begin by converting the numbers to the Arabic numeral representation, permitting long division procedures that make use of the place value system.[3]
 
+---
+
 # Representation Learning
 
 Representation is basically representing the input data(be image, speech, or video for that matter) in a way the learning algorithm can easily process. Representation Learning is using learning algorithms to derive good features or representation automatically, instead of traditional hand-engineered features. Specifically, during learning it transforms the raw data input to a representation that can be effectively exploited by learning algorithms. Hence this unsupervised feature learning obviates the need for manual feature engineering, which allows a machine to both learn the features and use them to perform a specific task.
@@ -33,7 +55,7 @@ While looking back at older machine learning algorithms, they made great progres
 
 ![representation learning history]({{site.baseurl}}/images/rep-learn-history-LRG.jpg)
 
-### Deep learning and Representation Learning
+### Representation Learning in Vision & Text
 
 And coming to deep learning, it exploits this concept by its very nature. Multilayer neural networks can be used to perform feature learning, since they learn a representation of increasing complexity/abstraction of their input at the hidden layer(s) which is subsequently used for classification or regression at the output layer. While the representations or features learned corresponds to the hidden stochastic neurons. Specifically, Restricted Boltzmann machines, auto encoders, deep belief networks, convolutional neural networks are well known architectures for representation Learning. These learnt features are increasingly more informative through layers towards the machine learning task that we intend to perform (e.g. classification).
 
@@ -151,11 +173,13 @@ Having said all the above. You might ask; where will I make use of Graph embeddi
 
 # Conclusion
 
-This post was meant to provide a the fundementals required for graph embeddings. Please let me know your feedback in the comments below. Thnaks for reading.
+This post was meant to provide a the fundementals required for graph embeddings. **Please let me know your feedback in the comments below.** 
 
-**So, We have come to the end of the first part of the blog series. You can check the [second part here](https://iamsiva11.github.io/graph-embeddings-2017-part2/)**. Which will provide a big-picture for learning and getting started with graph embeddings.
+Thanks for reading. Cheers!
 
+**We've come to the end of the first part of the blog series. You can check the [second part here](https://iamsiva11.github.io/graph-embeddings-2017-part2/)**. Which will provide a big-picture for learning and getting started with graph embeddings.
 
+---
 
 # REFERENCES
 
