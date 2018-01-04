@@ -228,11 +228,11 @@ Other significant hyperparameters used in the experiment used to get higher accu
 
 ### Additional notes
 
-Also I experimented with Concatenation instead of addition by extending the embedding dimension. While getting inspired from these [papers](https://arxiv.org/pdf/1606.03475.pdf), [papers](https://arxiv.org/pdf/1511.05942.pdf) and  Bidirectional LSTM layers where we can concatenate (default), multiplication, average, and sum the outputs. This approach didn't give any better results though.
+Also I experimented with _Concatenation_ instead of addition by extending the embedding dimension. While getting inspired from these [papers](https://arxiv.org/pdf/1606.03475.pdf), [papers](https://arxiv.org/pdf/1511.05942.pdf) and  Bidirectional LSTM layers where we can concatenate (default), multiplication, average, and sum the outputs. This approach didn't give any better results though.
 
 Further, the vector addition operation of feature embeddings we performed earlier is a hacky way of avoiding the matrix multiplication of the embedding matrix and the one-hot vector. This way we save time and the computation cost.
 
-Initially, I worked on pytorch for this project, but got to know their CPU backend is relatively slow resulting in slow predictions. And I switched to tensorflow after that. Even though I had worked in tf previously in its early days on lot of computer vision problems. I was impressed with the rapid improvement in the APIs. Providing better control of things and giving an option to go low level and work high level depending on our needs. As this was not the case before v1.0. Much impressed with tensorflow.
+Initially, I worked on pytorch for this project, but got to know their CPU backend is relatively slow resulting in slow predictions. And I switched to tensorflow after that. Even though I had worked in tf previously in its early days on lot of computer vision problems. I was impressed with the rapid improvement in the APIs. Providing better control while giving an option to switch between low level and  high level apis depending on our needs; as this was not the case before v1.0. Much impressed with tensorflow.
 
 Moreover, I like pytorch for quick experimentation and research purposes though. As getting production ready has not been their focus from first. That said they are good at what they do. While tensorflow's power comes with a bit of verbosity. Which is nothing to complain about, if we look at the scale and big picture of things it can help us accomplish in the long term.
 
@@ -240,7 +240,7 @@ Moreover, I like pytorch for quick experimentation and research purposes though.
 
 # Conclusion
 
-I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for his pytorch seq2seq code.
+I would like to thank the google brain team for open sourcing the seq2seq tensorflow code, [@spro](https://github.com/spro) on his valuable inputs for handling this problem, [@MaximumEntropy](https://github.com/MaximumEntropy/Seq2Seq-PyTorch) for the pytorch seq2seq code.
 
 ---
 
