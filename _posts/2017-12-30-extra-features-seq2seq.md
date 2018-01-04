@@ -112,7 +112,7 @@ The result will be a list of documents, each of which contains a list of (word, 
 ('Thermo-Print', 'N'),
 ```
 
-Furthermore, features can be generated at run-time. Given the POS tags, we can now continue to generate more features for each of the tokens in the dataset. The features that will be useful in the training process depends on the task at hand. Below are some of the commonly used features for a word w in named entity recognition. To point a few; the words surrounding w, such as the previous and the next word or whether w is in uppercase or lowercase or number, or contains digits or contains a special character. For further notes on this, please [refer](http://www.albertauyeung.com/post/python-sequence-labelling-with-crf/)
+Furthermore, features can be generated at run-time. Given the POS tags, we can now continue to generate more features for each of the tokens in the dataset. The features that will be useful in the training process depends on the task at hand. Below are some of the commonly used features for a word w in named entity recognition. To point a few; the words surrounding w, such as the previous and the next word or whether w is in uppercase or lowercase or number, or contains digits or contains a special character. For further notes on this, please [refer](http://www.albertauyeung.com/post/python-sequence-labelling-with-crf/) this wonderful blog post.
 
 ---
 
