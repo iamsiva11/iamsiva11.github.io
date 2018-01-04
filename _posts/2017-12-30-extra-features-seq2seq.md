@@ -26,7 +26,7 @@ layout: post
 
 Recent developments in deep learning have given rise to a powerful alternative – discriminative models called sequence-to-sequence  models, can  be  trained  to  model  the  conditional probability distribution of the output transcript sequence given the input sequence, directly without inverting a generative  model.
  
-Encoder-decoder neural models (Sutskever et al., 2014) are a generic deep-learning approach to sequence-to-sequence translation (Seq2Seq) tasks. Encoder Decoder network, is a model consisting of two separate RNNs called the encoder and decoder. The encoder reads an input sequence one item at a time, and outputs a vector at each step. The final output of the encoder is kept as the context vector. The decoder uses this context vector to produce a sequence of outputs one step at a time. The performance  of  the  original  sequence-to-sequence  model  has equal Contribution been  greatly  improved  by  the  invention  of soft attention,  which  made  it  possible  for  sequence-to sequence  models  to  generalize  better  and  achieve  excellent  results  using much  smaller  networks  on  long  sequences. The  sequence-to-sequence  model  with  attention  had  considerable  empirical success on machine translation, speech recognition, image caption generation, and question answering.
+**Encoder-decoder** neural models (Sutskever et al., 2014) are a generic deep-learning approach to sequence-to-sequence translation (Seq2Seq) tasks. Encoder Decoder network, is a model consisting of two separate RNNs called the encoder and decoder. The encoder reads an input sequence one item at a time, and outputs a vector at each step. The final output of the encoder is kept as the context vector. The decoder uses this context vector to produce a sequence of outputs one step at a time. The performance  of  the  original  sequence-to-sequence  model  has equal Contribution been  greatly  improved  by  the  invention  of soft attention,  which  made  it  possible  for  sequence-to sequence  models  to  generalize  better  and  achieve  excellent  results  using much  smaller  networks  on  long  sequences. The  sequence-to-sequence  model  with  attention  had  considerable  empirical success on machine translation, speech recognition, image caption generation, and question answering.
 
 If you want to quickly go through the progress of seq2seq research. Paper notes of the foundational papers in seq2seq literature are available [here](https://github.com/iamsiva11/DLNLP-papernotes/tree/master/notes/nmt)
 
@@ -44,7 +44,7 @@ To get more specific. Below are the foundational seq2seq papers listed chronolog
 
 # So what’s the problem ? 
 
-The training data for seq2seq involves the use of a parallel corpus (L1-L2) aligned at the level of sentences and words. Traditionally, since sequence to sequence models take only one input features at a time. Currently, there is no way we can feed more than one input feature at once to the seq2seq model.
+The training data for seq2seq involves the use of a **parallel corpus (L1-L2)** aligned at the level of sentences and words. Traditionally, since sequence to sequence models take only one input features at a time. Currently, there is no way we can feed more than one input feature at once to the seq2seq model.
 
 If we consider the input data of previous statistical based approaches of sequence modelling before seq2seq. The input data on the source tokens contains extra features along with the main tokens. 
 
@@ -72,7 +72,7 @@ output = ["I", "I", "I", "I", "I", "C"]
 
 Say we have extra features like POS for every source token and we want a way to train those features. Instead of ignoring them and training just with the typical source-target parallel corpus training way. 
 
-To understand this a little bit more, let's explore the statistical Sequence modelling methods before deep learning.
+> To understand this a little bit more, let's explore the statistical Sequence modelling methods before deep learning.
 
 ### Sequence modelling before deep learning 
 
@@ -87,9 +87,12 @@ That said, now let us consider a specific case of how data is fed to CRF models.
 ### Data input to CRF models
 
 Typically in CRF models, your input file should be in the following format:
+
+`
 Bill CAPITALIZED noun
 slept non-noun
 here LOWERCASE STOPWORD non-noun
+`
 
 That is, each line represents one token, and has the format:
 feature1 feature2 ... featureN label
