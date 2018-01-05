@@ -25,7 +25,7 @@ comments: true
 
 In the previous blog post we discussed about **_representation learning and graph embeddings_** in general. Which would serve as the foundation for this blog post, as this post will go into graph embeddings in much more depth. 
 
-This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/Graph-embeddings-part-1/)
+This is the second part of the Graph embeddings 2017 blog series. You can read the [first part here](https://iamsiva11.github.io/graph-embeddings-2017-part1)
 
 ---
 
