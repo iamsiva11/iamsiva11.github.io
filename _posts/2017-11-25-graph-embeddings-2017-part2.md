@@ -92,7 +92,7 @@ Deep Learning based methods:
 
 # A brief summary of pioneering graph embedding techniques
 
-Having seen the taxonomy of approaches in the Graph embeddings technique; lets have a _quick overview of what the important pioneering techniques_ in graph embedding do. And provide a context of the research developemnt and progress of in the Graph embeddings space:
+Having seen the taxonomy of approaches in the Graph embeddings technique; lets have a _quick overview of what the important pioneering techniques_ in graph embedding do. And provide a context of the research development and progress of in the Graph embeddings space:
 
 * **Laplacian Eigenmaps, Locally Linear Embedding** [Early 2000s] : Graph -> adjacency matrix -> latent representation (Belongs to Factorisation based methods)
 
@@ -116,7 +116,7 @@ Other important techniques worth mentioning:
 
 # Conclusion
 
-This post was meant to provide a big-picture for learning and getting started with graph embeddings. In the upcoming posts, I'll highlight some of the current trends and future directions. While going through each important technique, applied part, performance comparision of these techniques, and some practical advice while working with graph embeddings in detail.
+This post was meant to provide a big-picture for learning and getting started with graph embeddings. In the upcoming posts, I'll highlight some of the current trends and future directions. While going through each important technique, applied part, performance comparison of these techniques, and some practical advice while working with graph embeddings in detail.
 
 I've undoubtedly failed to mention many other areas that are equally important and noteworthy. Please let me know in the comments below what I missed, where I made a mistake or misrepresented a method, or just which aspect of graph embeddings you find particularly exciting or unexplored.
 
