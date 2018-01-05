@@ -10,7 +10,7 @@ comments: true
 ## Table  of Contents
  
 * Introduction
-* History annd progress of Graph embeddings
+* History and progress of Graph embeddings
 * Classification of Graph Embedding Methods
 	* Factorisation based methods
 	* Random Walk based Methods
@@ -29,7 +29,7 @@ This is the second part of the Graph embeddings 2017 blog series. You can read t
 
 ---
 
-# History annd progress of Graph embeddings
+# History and progress of Graph embeddings
 
 In the _**early 2000s**_, researchers developed graph embedding algorithms as part of _dimensionality reduction_ techniques. They would construct  a  _similarity  graph_  for  a  set  of n _D-dimensional_  points  based  on  **neighbourhood**  and  then embed  the  nodes  of  the  graph  in  a D-dimensional  vector-space, where _d<<D_. The idea for embedding was to keep connected  nodes  closer  to  each  other  in  the  vector  space. **Laplacian  Eigen maps(LAP)**[1] and **Locally  Linear  Embedding(LLE)**[2] are  examples  of  algorithms  based  on  this  rationale. 
 
