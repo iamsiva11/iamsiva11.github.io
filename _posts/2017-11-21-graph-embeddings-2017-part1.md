@@ -24,7 +24,7 @@ You can read the [second part here](https://iamsiva11.github.io/graph-embeddings
 
 # Introduction
 
-I have been working in the area of **Network Representation Learning(aka. graph embeddings)** for nearly a year now. Specifically, my work on graph embeddings deals with **Knowledge graphs**. So, I want to paint a high level picture about graph embeddings in general with this blog post. This blog post comprises of 2 sections - overview of **representation learning**, overview of **graph embeddings**. Which helps to build a foundation and big picture, before going in-depth in [part-2]](https://iamsiva11.github.io/graph-embeddings-2017-part2).
+I have been working in the area of **Network Representation Learning(aka. graph embeddings)** for nearly a year now. Specifically, my work on graph embeddings deals with **Knowledge graphs**. So, I want to paint a high level picture about graph embeddings in general with this blog post. This blog post comprises of 2 sections - overview of **representation learning**, overview of **graph embeddings**. Which helps to build a foundation and big picture, before going in-depth in [part-2](https://iamsiva11.github.io/graph-embeddings-2017-part2).
 
 ---
 
