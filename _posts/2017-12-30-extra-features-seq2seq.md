@@ -181,22 +181,21 @@ In the file [Model.py](https://github.com/MaximumEntropy/Seq2Seq-PyTorch/blob/ma
 # 1/ Initialise embedding for the extra feature (input_src_f1)
 def forward(self, input_src, input_trg, input_src_f1,  trg_mask=None, ctx_mask=None):
 
-# Create new embedding for the already defined src_embedding definition/initialiser
-f1_emb = self.src_embedding(input_src_f1)
+	# Create new embedding for the already defined src_embedding definition/initialiser
+	f1_emb = self.src_embedding(input_src_f1)
 
-# Combining the source features
-
-# Create a randomly initialised tensor of size (batch_size X sequence length, embeding_dim)
-extended_embedding = Variable(torch.randn(80, len(input_src[0]), 500)).cuda()
+	# Combining the source features
+	# Create a randomly initialised tensor of size (batch_size X sequence length, embeding_dim)
+	extended_embedding = Variable(torch.randn(80, len(input_src[0]), 500)).cuda()
      
-# For every batches, pull embedding vectors of the extra feature and combine them
-for i, s in enumerate(src_emb):
-  extended_embedding[i,:,:] = (src_emb[i,:,:] + f1_emb[i,:,:])     
+	# For every batches, pull embedding vectors of the extra feature and combine them
+	for i, s in enumerate(src_emb):
+  		extended_embedding[i,:,:] = (src_emb[i,:,:] + f1_emb[i,:,:])     
 
-self.h0_encoder, self.c0_encoder = self.get_state(input_src)
+	self.h0_encoder, self.c0_encoder = self.get_state(input_src)
 
-src_h, (src_h_t, src_c_t) = self.encoder(
-      extended_embedding, (self.h0_encoder, self.c0_encoder))
+	src_h, (src_h_t, src_c_t) = self.encoder(
+     	 extended_embedding, (self.h0_encoder, self.c0_encoder))
 
 """
 Note: If using only CPU, can remove .cuda()
